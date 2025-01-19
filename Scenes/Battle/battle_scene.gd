@@ -13,16 +13,21 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#TODO add timer before start
-	currentTime += delta * 10
+	currentTime += delta * 5
 	var timeStep = int(currentTime)
+	$TimeLabel.text = "Current time: %s" % timeStep
+	$Player/TimeTillAttackLabel.text = "Attacks in %s" % player.timeTillAttack(timeStep)
+	$Enemy/TimeTillAttackLabel.text = "Attacks in %s" % enemy.timeTillAttack(timeStep)
 	if lastPlayerHit != timeStep && player.shouldAttack(timeStep):
 		enemy.takeDamage(player.damage)
 		lastPlayerHit = timeStep
+		$Enemy/HPLabel.text = "HP: %s" % enemy.health
 		
 	if enemy.isAlive():
 		if lastEnemyHit != timeStep && enemy.shouldAttack(timeStep):
 			player.takeDamage(enemy.damage)
 			lastEnemyHit = timeStep
+			$Player/HPLabel.text = "HP: %s" % player.health
 			
 	else:
 		Global.progress += 1
@@ -32,6 +37,3 @@ func _process(delta: float) -> void:
 	if player.isAlive() == false:
 		get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
 		return
-	print_debug("Current time: %s" % currentTime)
-	print_debug("Player HP: %s" % player.health)
-	print_debug("Enemy HP: %s" % enemy.health)

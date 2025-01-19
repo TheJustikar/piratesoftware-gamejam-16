@@ -13,7 +13,9 @@ func _init(health: int, defense: int, damage: int, hitRate: int) -> void:
 	self.hitRate = hitRate
 
 func shouldAttack(currentTime: int) -> bool: 
-	return currentTime != 0 && (currentTime % self.hitRate) == 0
+	return currentTime != 0 && currentTime % self.hitRate == 0
+	
+func timeTillAttack(currentTime: int) -> int: return self.hitRate - (currentTime % self.hitRate)
 
 func takeDamage(damage: int): 
 	var totalDamage = int(damage * (1 - clamp(self.defense / 100.0, 0, 0.9)))
