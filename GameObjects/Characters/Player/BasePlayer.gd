@@ -1,6 +1,6 @@
 class_name Player extends Character
 
-func _init(upgrades: Array[Upgrade], health: int, defense: int, damage: int, hitRate: int) -> void:
+func _init(upgrades: Array[Upgrade], name: String, health: int, defense: int, damage: int, hitRate: int) -> void:
 	var actualHealth = health
 	var actualDefense = defense
 	var actualDamage = damage
@@ -10,4 +10,4 @@ func _init(upgrades: Array[Upgrade], health: int, defense: int, damage: int, hit
 		actualDefense += upgrade.defense
 		actualDamage += upgrade.damage
 		actualHitRate += upgrade.hitRate
-	super(actualHealth, actualDefense, actualDamage, actualHitRate)
+	super(name, actualHealth, actualDefense, actualDamage, actualHitRate)
