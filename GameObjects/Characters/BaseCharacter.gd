@@ -12,13 +12,13 @@ func _init(health: int, defense: int, damage: int, hitRate: int) -> void:
 	self.damage = damage
 	self.hitRate = hitRate
 
-func shouldAttack(currentTime: int) -> bool: return (currentTime % hitRate) == 0
+func shouldAttack(currentTime: int) -> bool: return (currentTime % self.hitRate) == 0
 
 func takeDamage(damage: int): 
-	var totalDamage = int(damage * (defense / 100))
-	if totalDamage > health:
-		health = 0
+	var totalDamage = int(damage * (self.defense / 100))
+	if totalDamage > self.health:
+		self.health = 0
 	else:
-		health -= totalDamage
+		self.health -= totalDamage
 
-func isAlive() -> bool: return health > 0
+func isAlive() -> bool: return self.health > 0
