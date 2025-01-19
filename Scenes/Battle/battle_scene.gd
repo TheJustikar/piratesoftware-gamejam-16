@@ -10,6 +10,8 @@ var lastEnemyHit: int = -1
 func _ready() -> void:
 	player = Global.player()
 	enemy = Global.currentEnemy()
+	$Player/HPLabel.text = "HP: %s" % player.health
+	$Enemy/HPLabel.text = "HP: %s" % enemy.health
 
 func _process(delta: float) -> void:
 	#TODO add timer before start
