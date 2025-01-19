@@ -1,11 +1,27 @@
 class_name Upgrade
 
+
 var name: String
 var health: int
 #Damage prevention in percent
 var defense: int
 var damage: int
 var hitRate: int
+
+
+static var allUpgrades: Array = [
+	CPUCore,
+	DistributedNetwork,
+	DockerContainer,
+	DownloadButton,
+	Encryption,
+	FiberglassConnection,
+	MoreServers,
+	Overclocking,
+	PhishingMail,
+	RAMChip
+]
+
 
 func _init(name: String, health: int, defense: int, damage: int, hitRate: int) -> void:
 	self.name = name
