@@ -6,6 +6,12 @@ var defense: int
 var damage: int
 var hitRate: int
 
+func _init(health: int, defense: int, damage: int, hitRate: int) -> void:
+	self.health = health
+	self.defense = defense
+	self.damage = damage
+	self.hitRate = hitRate
+
 func shouldAttack(currentTime: int) -> bool: return (currentTime % hitRate) == 0
 
 func takeDamage(damage: int): 
