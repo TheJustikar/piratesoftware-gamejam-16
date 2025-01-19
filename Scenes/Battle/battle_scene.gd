@@ -32,6 +32,3 @@ func _process(delta: float) -> void:
 	if player.isAlive() == false:
 		get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
 		return
-	print_debug("Current time: %s" % currentTime)
-	print_debug("Player HP: %s" % player.health)
-	print_debug("Enemy HP: %s" % enemy.health)
