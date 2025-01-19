@@ -20,7 +20,7 @@ func shouldAttack(currentTime: int) -> bool:
 func timeTillAttack(currentTime: int) -> int: return self.hitRate - (currentTime % self.hitRate)
 
 func takeDamage(damage: int): 
-	var totalDamage = int(damage * (1 - clamp(self.defense / 100.0, 0, 0.9)))
+	var totalDamage = int(damage * (1 - clamp(self.defense / 100.0, -0.9, 0.9)))
 	if totalDamage > self.health:
 		self.health = 0
 	else:
