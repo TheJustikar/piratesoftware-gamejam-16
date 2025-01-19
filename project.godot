@@ -12,7 +12,7 @@ config_version=5
 
 config/name="PirateSoftware GameJam 16"
 run/main_scene="res://Scenes/MainMenu/MainMenuScene.tscn"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 
 [autoload]
 
@@ -27,3 +27,7 @@ window/size/mode=2
 [dotnet]
 
 project/assembly_name="PirateSoftware GameJam 16"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
