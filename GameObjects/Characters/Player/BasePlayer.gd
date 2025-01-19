@@ -5,9 +5,9 @@ func _init(upgrades: Array[Upgrade], health: int, defense: int, damage: int, hit
 	var actualDefense = defense
 	var actualDamage = damage
 	var actualHitRate = hitRate
-	for upgrage in upgrades:
-		actualHealth += upgrage.health
-		actualDefense += upgrage.defense
-		actualDamage += upgrage.damage
-		actualHitRate += upgrage.hitRate
+	for upgrade in upgrades:
+		actualHealth += upgrade.health
+		actualDefense += upgrade.defense
+		actualDamage += upgrade.damage
+		actualHitRate += upgrade.hitRate
 	super(actualHealth, actualDefense, actualDamage, actualHitRate)
