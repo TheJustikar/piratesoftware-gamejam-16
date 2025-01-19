@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://du5y6pqqh5pbj"]
+[gd_scene load_steps=4 format=3 uid="uid://du5y6pqqh5pbj"]
 
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="1_r4aol"]
 [ext_resource type="Script" path="res://Scenes/Upgrade/upgrade_scene.gd" id="2_6743p"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_dtemn"]
 
 [node name="Upgrade" type="Control"]
 layout_mode = 3
@@ -14,18 +16,83 @@ theme = ExtResource("1_r4aol")
 script = ExtResource("2_6743p")
 
 [node name="ConfirmButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 0
+offset_left = 626.0
+offset_top = 767.0
+offset_right = 697.0
+offset_bottom = 798.0
+focus_mode = 0
+disabled = true
 text = "Confirm"
 
+[node name="Upgrades" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectUpgrade1Button" type="Button" parent="Upgrades"]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 271.0
+offset_right = 314.0
+offset_bottom = 302.0
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_dtemn")
+text = "Upgrade 1"
+
+[node name="Upgrade1StatsLabel" type="Label" parent="Upgrades"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 340.0
+offset_right = 280.0
+offset_bottom = 363.0
+
+[node name="SelectUpgrade2Button" type="Button" parent="Upgrades"]
+layout_mode = 0
+offset_left = 623.0
+offset_top = 284.0
+offset_right = 711.0
+offset_bottom = 315.0
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_dtemn")
+text = "Upgrade 2"
+
+[node name="Upgrade2StatsLabel" type="Label" parent="Upgrades"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 352.0
+offset_right = 690.0
+offset_bottom = 375.0
+
+[node name="SelectUpgrade3Button" type="Button" parent="Upgrades"]
+layout_mode = 0
+offset_left = 1032.0
+offset_top = 289.0
+offset_right = 1120.0
+offset_bottom = 320.0
+focus_mode = 0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_dtemn")
+text = "Upgrade 3"
+
+[node name="Upgrade3StatsLabel" type="Label" parent="Upgrades"]
+layout_mode = 0
+offset_left = 1062.0
+offset_top = 361.0
+offset_right = 1102.0
+offset_bottom = 384.0
+
+[node name="CharacterStatsLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1434.0
+offset_top = 368.0
+offset_right = 1541.0
+offset_bottom = 391.0
+text = "Current Stats:"
+
 [connection signal="button_up" from="ConfirmButton" to="." method="_on_confirm_button_button_up"]
+[connection signal="toggled" from="Upgrades/SelectUpgrade1Button" to="." method="_on_select_upgrade_1_button_toggled"]
+[connection signal="toggled" from="Upgrades/SelectUpgrade2Button" to="." method="_on_select_upgrade_2_button_toggled"]
+[connection signal="toggled" from="Upgrades/SelectUpgrade3Button" to="." method="_on_select_upgrade_3_button_toggled"]
