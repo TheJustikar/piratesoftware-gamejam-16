@@ -3,7 +3,6 @@ extends Control
 
 @onready
 var upgrades: Array[Upgrade] = []
-
 var currentSelection: int = -1
 
 

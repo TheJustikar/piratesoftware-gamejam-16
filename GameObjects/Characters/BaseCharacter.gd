@@ -35,7 +35,6 @@ func takeDamage(damage: int):
 func isAlive() -> bool: return self.health > 0
 
 
-
 func getStatsString() -> String:
 	var stats = ""
 	if health != 0:
