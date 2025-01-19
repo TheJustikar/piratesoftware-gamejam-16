@@ -18,9 +18,10 @@ func _process(delta: float) -> void:
 		if enemy.shouldAttack(int(currentTime)):
 			player.takeDamage(enemy.damage)
 	else:
-		#TODO Round won
-		pass
+		Global.progress += 1
+		get_tree().change_scene_to_file("res://Scenes/Upgrade/UpgradeScene.tscn")
+		return
 		
 	if player.isAlive() == false:
-		#TODO Round lost
-		pass
+		get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
+		return
