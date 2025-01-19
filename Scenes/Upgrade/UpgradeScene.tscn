@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://dq873nvwgdpnq"]
+[gd_scene format=3 uid="uid://du5y6pqqh5pbj"]
 
-[node name="GameOverScene" type="Control"]
+[node name="UpgradeScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
