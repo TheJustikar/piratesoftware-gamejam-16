@@ -1,12 +1,14 @@
 class_name Character
 
+var name: String
 var health: int
 #Damage prevention in percent
 var defense: int
 var damage: int
 var hitRate: int
 
-func _init(health: int, defense: int, damage: int, hitRate: int) -> void:
+func _init(name: String, health: int, defense: int, damage: int, hitRate: int) -> void:
+	self.name = name
 	self.health = health
 	self.defense = defense
 	self.damage = damage
@@ -18,7 +20,7 @@ func shouldAttack(currentTime: int) -> bool:
 func timeTillAttack(currentTime: int) -> int: return self.hitRate - (currentTime % self.hitRate)
 
 func takeDamage(damage: int): 
-	var totalDamage = int(damage * (1 - clamp(self.defense / 100.0, 0, 0.9)))
+	var totalDamage = int(damage * (1 - clamp(self.defense / 100.0, -0.9, 0.9)))
 	if totalDamage > self.health:
 		self.health = 0
 	else:
