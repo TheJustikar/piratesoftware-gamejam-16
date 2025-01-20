@@ -11,9 +11,9 @@ func reset():
 
 
 func player() -> Player:
-	return Player.new(upgrades, "test", 100, 0, 10, 10)
+	return Player.new(upgrades, "test", "", 100, 0, 10, 10)
 
 
 func currentEnemy() -> Enemy:
 	#TODO check enemy according to progress
-	return Enemy.new("test", 100, 0, 10, 15)
+	return Enemy.new("test", "", 100, 0, 10, 15)
