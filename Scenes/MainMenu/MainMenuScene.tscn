@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://l8hxhx101cf8"]
+[gd_scene load_steps=3 format=3 uid="uid://l8hxhx101cf8"]
 
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="1_7kvbo"]
 [ext_resource type="Script" path="res://Scenes/MainMenu/main_menu_scene.gd" id="2_gnyfj"]
-[ext_resource type="Texture2D" uid="uid://bpcq4r4up23ae" path="res://Scenes/MainMenu/MenuAssets/Baum.svg" id="3_wcuux"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -28,9 +27,5 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "START"
-
-[node name="Baum" type="Sprite2D" parent="."]
-position = Vector2(740, 462)
-texture = ExtResource("3_wcuux")
 
 [connection signal="button_up" from="StartButton" to="." method="_on_start_button_button_up"]
