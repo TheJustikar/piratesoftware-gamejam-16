@@ -1,4 +1,5 @@
-class_name Upgrade
+class_name Upgrade extends GameObject
+
 
 var health: int
 #Damage prevention in percent
@@ -6,8 +7,46 @@ var defense: int
 var damage: int
 var hitRate: int
 
-func _init(health: int, defense: int, damage: int, hitRate: int) -> void:
+
+static var allUpgrades: Array = [
+	CPUCore,
+	DistributedNetwork,
+	DockerContainer,
+	DownloadButton,
+	Encryption,
+	FiberglassConnection,
+	MoreServers,
+	Overclocking,
+	PhishingMail,
+	RAMChip
+]
+
+
+func _init(name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
 	self.health = health
 	self.defense = defense
 	self.damage = damage
 	self.hitRate = hitRate
+	super(name, spritePath)
+
+
+func getStatsString() -> String:
+	var stats = ""
+	if health != 0:
+		stats += "Health: %s" % health
+	if defense != 0:
+		if stats.is_empty() == false:
+			stats += "\n"
+		stats += "Defense: %s" % defense
+	if damage != 0:
+		if stats.is_empty() == false:
+			stats += "\n"
+		stats += "Damage: %s" % damage
+	if hitRate != 0:
+		if stats.is_empty() == false:
+			stats += "\n"
+		stats += "Hit Rate: %s" % hitRate
+	
+	if stats.is_empty():
+		stats = "Nothing"
+	return stats
