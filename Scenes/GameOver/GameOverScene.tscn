@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://btvg8ddgan04j"]
+[gd_scene load_steps=3 format=3 uid="uid://btvg8ddgan04j"]
 
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="1_6756q"]
+[ext_resource type="Script" path="res://Scenes/GameOver/game_over_scene.gd" id="2_dd2i6"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -10,3 +11,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6756q")
+script = ExtResource("2_dd2i6")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+
+[connection signal="button_up" from="RestartButton" to="." method="_on_restart_button_button_up"]

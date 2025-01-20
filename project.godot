@@ -10,9 +10,10 @@ config_version=5
 
 [application]
 
-config/name="PirateSoftware GameJam 16"
+config/name="Through the Firewall"
+config/description="PirateSoftware GameJam 16"
 run/main_scene="res://Scenes/MainMenu/MainMenuScene.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
@@ -26,7 +27,7 @@ window/size/mode=2
 
 [dotnet]
 
-project/assembly_name="PirateSoftware GameJam 16"
+project/assembly_name="Through the Firewall"
 
 [rendering]
 
