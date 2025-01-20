@@ -2,4 +2,4 @@ class_name DockerContainer extends Upgrade
 
 
 func _init() -> void:
-	super("Docker Container", "", 10, 5, 5, 1)
+	super("Docker Container", "res://GameObjects/Upgrades/docker_container.png", 10, 5, 5, 1)
