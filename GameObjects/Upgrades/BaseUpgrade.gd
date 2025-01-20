@@ -1,7 +1,6 @@
-class_name Upgrade
+class_name Upgrade extends GameObject
 
 
-var name: String
 var health: int
 #Damage prevention in percent
 var defense: int
@@ -23,12 +22,12 @@ static var allUpgrades: Array = [
 ]
 
 
-func _init(name: String, health: int, defense: int, damage: int, hitRate: int) -> void:
-	self.name = name
+func _init(name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
 	self.health = health
 	self.defense = defense
 	self.damage = damage
 	self.hitRate = hitRate
+	super(name, spritePath)
 
 
 func getStatsString() -> String:

@@ -1,7 +1,6 @@
-class_name Character
+class_name Character extends GameObject
 
 
-var name: String
 var health: int
 #Damage prevention in percent
 var defense: int
@@ -9,12 +8,12 @@ var damage: int
 var hitRate: int
 
 
-func _init(name: String, health: int, defense: int, damage: int, hitRate: int) -> void:
-	self.name = name
+func _init(name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
 	self.health = health
 	self.defense = defense
 	self.damage = damage
 	self.hitRate = hitRate
+	super(name, spritePath)
 
 
 func shouldAttack(currentTime: int) -> bool: 

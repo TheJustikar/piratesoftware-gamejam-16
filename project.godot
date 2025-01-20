@@ -28,3 +28,7 @@ window/size/mode=2
 [dotnet]
 
 project/assembly_name="Through the Firewall"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
