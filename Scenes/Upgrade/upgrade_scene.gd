@@ -7,7 +7,7 @@ var currentSelection: int = -1
 
 
 func _ready() -> void:
-	$CharacterStatsLabel.text = "Character:\n%s" % Global.player().getStatsString()
+	$MarginContainer/CenterContainer/HSplitContainer/Character/CharacterStatsLabel.text = "Character:\n%s" % Global.player().getStatsString()
 	
 	var pickedUpgrades = []
 	
@@ -19,8 +19,7 @@ func _ready() -> void:
 	for i in range(3):
 		var upgrade = pickedUpgrades[i].new()
 		upgrades.append(upgrade)
-		get_node(NodePath("Upgrades/SelectUpgrade%sButton" % (i + 1))).text = upgrade.name
-		get_node(NodePath("Upgrades/Upgrade%sStatsLabel" % (i + 1))).text = upgrade.getStatsString()
+		get_node(NodePath("MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection%s" % (i + 1))).intializeWith(upgrade)
 
 
 func _on_confirm_button_button_up() -> void:
@@ -28,19 +27,22 @@ func _on_confirm_button_button_up() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Battle/BattleScene.tscn")
 
 
-func _on_select_upgrade_1_button_toggled(toggled_on: bool) -> void:
-	$ConfirmButton.disabled = false
-	if toggled_on:
-		currentSelection = 0
+func _on_select_upgrade_1_button_toggled() -> void:
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
+	currentSelection = 0
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection2.untoggle()
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection3.untoggle()
 
 
-func _on_select_upgrade_2_button_toggled(toggled_on: bool) -> void:
-	$ConfirmButton.disabled = false
-	if toggled_on:
-		currentSelection = 1
+func _on_select_upgrade_2_button_toggled() -> void:
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
+	currentSelection = 1
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection1.untoggle()
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection3.untoggle()
 
 
-func _on_select_upgrade_3_button_toggled(toggled_on: bool) -> void:
-	$ConfirmButton.disabled = false
-	if toggled_on:
-		currentSelection = 2
+func _on_select_upgrade_3_button_toggled() -> void:
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
+	currentSelection = 2
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection1.untoggle()
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection2.untoggle()
