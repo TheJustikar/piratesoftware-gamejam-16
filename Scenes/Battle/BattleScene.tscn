@@ -2,9 +2,21 @@
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle_scene.gd" id="1_orgtg"]
 [ext_resource type="PackedScene" uid="uid://c6exjqad4wwnj" path="res://GameObjects/Characters/character_scene.tscn" id="2_tovw6"]
+[ext_resource type="Texture2D" uid="uid://cyby80we4y51g" path="res://GlobalAssets/battleground.png" id="2_d8utd"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_orgtg")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8utd")
 
 [node name="Player" parent="." instance=ExtResource("2_tovw6")]
 position = Vector2(403, 531)
