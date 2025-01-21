@@ -14,7 +14,7 @@ grow_vertical = 2
 theme = ExtResource("1_6756q")
 script = ExtResource("2_dd2i6")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
