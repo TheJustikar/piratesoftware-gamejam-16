@@ -11,7 +11,7 @@ func reset():
 
 
 func player() -> Player:
-	return Player.new(upgrades, "test", "", 100, 0, 10, 10)
+	return EvilEye.new(upgrades)
 
 
 func currentEnemy() -> Enemy:
