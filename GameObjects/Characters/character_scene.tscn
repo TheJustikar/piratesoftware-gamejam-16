@@ -1,49 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6exjqad4wwnj"]
+[gd_scene load_steps=4 format=3 uid="uid://cygs6ackkbhvc"]
 
 [ext_resource type="Script" path="res://GameObjects/Characters/character_scene.gd" id="1_5afkb"]
-[ext_resource type="SpriteFrames" uid="uid://jga848ts8rx" path="res://GameObjects/Characters/Enemies/firewall_animation.tres" id="2_85iq4"]
+[ext_resource type="SpriteFrames" uid="uid://cijnbc0vf8p0n" path="res://GameObjects/Characters/Enemies/firewall_animation.tres" id="2_85iq4"]
+[ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="3_yy24c"]
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_5afkb")
 metadata/_edit_group_ = true
 
-[node name="NameContainer" type="CenterContainer" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_85iq4")
+animation = &"idle"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("3_yy24c")
+
+[node name="NameContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = -90.0
 offset_right = 64.0
 offset_bottom = -67.0
 
-[node name="NameLabel" type="Label" parent="NameContainer"]
+[node name="NameLabel" type="Label" parent="Control/NameContainer"]
 layout_mode = 2
 text = "Name"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_85iq4")
-animation = &"idle"
-
-[node name="BattleStatsContainer" type="CenterContainer" parent="."]
+[node name="BattleStatsContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = 64.0
 offset_right = 64.0
 offset_bottom = 114.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BattleStatsContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/BattleStatsContainer"]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="BattleStatsContainer/VBoxContainer"]
+[node name="HPLabel" type="Label" parent="Control/BattleStatsContainer/VBoxContainer"]
 layout_mode = 2
 text = "HP: 100"
 
-[node name="TimeToAttackLabel" type="Label" parent="BattleStatsContainer/VBoxContainer"]
+[node name="TimeToAttackLabel" type="Label" parent="Control/BattleStatsContainer/VBoxContainer"]
 layout_mode = 2
 text = "Attacks in 0"
 
-[node name="AllStatsContainer" type="CenterContainer" parent="."]
+[node name="AllStatsContainer" type="CenterContainer" parent="Control"]
+layout_mode = 0
 offset_left = -64.0
 offset_top = 64.0
 offset_right = 64.0
 offset_bottom = 87.0
 
-[node name="AllStatsLabel" type="Label" parent="AllStatsContainer"]
+[node name="AllStatsLabel" type="Label" parent="Control/AllStatsContainer"]
 layout_mode = 2
 text = "HP: 100"
