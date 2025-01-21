@@ -10,6 +10,7 @@ offset_bottom = 182.0
 mouse_filter = 0
 theme = ExtResource("1_x3f26")
 script = ExtResource("2_s4mxn")
+metadata/_edit_group_ = true
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 2
