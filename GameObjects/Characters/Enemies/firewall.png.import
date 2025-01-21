@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jbs3x0wy2wa1"
-path="res://.godot/imported/Firewall.jpg-bff263939e83f9090a5ea45d015b8c92.ctex"
+uid="uid://bpjy1ac4la1pg"
+path="res://.godot/imported/firewall.png-544c174b47935014aa57d0005d0faf61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameObjects/Characters/Enemies/Firewall.jpg"
-dest_files=["res://.godot/imported/Firewall.jpg-bff263939e83f9090a5ea45d015b8c92.ctex"]
+source_file="res://GameObjects/Characters/Enemies/firewall.png"
+dest_files=["res://.godot/imported/firewall.png-544c174b47935014aa57d0005d0faf61.ctex"]
 
 [params]
 

@@ -1,41 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://53d6n0mbvlhj"]
+[gd_scene load_steps=3 format=3 uid="uid://53d6n0mbvlhj"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle_scene.gd" id="1_orgtg"]
+[ext_resource type="PackedScene" uid="uid://c6exjqad4wwnj" path="res://GameObjects/Characters/character_scene.tscn" id="2_tovw6"]
+[ext_resource type="Texture2D" uid="uid://cyby80we4y51g" path="res://GlobalAssets/battleground.png" id="2_d8utd"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_orgtg")
 
-[node name="Player" type="Node2D" parent="."]
-position = Vector2(416, 546)
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="HPLabel" type="Label" parent="Player"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "HP: 100"
+[node name="TextureRect" type="TextureRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_d8utd")
 
-[node name="TimeTillAttackLabel" type="Label" parent="Player"]
-offset_left = -8.0
-offset_top = 57.0
-offset_right = 50.0
-offset_bottom = 80.0
-text = "Attacks in 0"
+[node name="Player" parent="." instance=ExtResource("2_tovw6")]
+position = Vector2(403, 531)
+scale = Vector2(2.5, 2.5)
+showStats = 1
 
-[node name="Enemy" type="Node2D" parent="."]
-position = Vector2(1537, 562)
-
-[node name="HPLabel" type="Label" parent="Enemy"]
-offset_left = -13.0
-offset_top = -9.0
-offset_right = 45.0
-offset_bottom = 14.0
-text = "HP: 100"
-
-[node name="TimeTillAttackLabel" type="Label" parent="Enemy"]
-offset_left = -23.0
-offset_top = 32.0
-offset_right = 67.0
-offset_bottom = 55.0
-text = "Attacks in 0"
+[node name="Enemy" parent="." instance=ExtResource("2_tovw6")]
+position = Vector2(1500, 546)
+scale = Vector2(2.5, 2.5)
+showStats = 1
 
 [node name="TimeLabel" type="Label" parent="."]
 offset_left = 918.0
