@@ -7,7 +7,7 @@ var _currentSelection: int = -1
 
 
 func _ready() -> void:
-	$MarginContainer/CenterContainer/HSplitContainer/Character/CharacterStatsLabel.text = "Character:\n%s" % Global.player().getStatsString()
+	$MarginContainer/CenterContainer/HSplitContainer/CenterContainer/Control/Character.intializeWith(Global.player())
 	
 	var pickedUpgrades = []
 	
