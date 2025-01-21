@@ -16,4 +16,4 @@ func player() -> Player:
 
 func currentEnemy() -> Enemy:
 	#TODO check enemy according to progress
-	return Enemy.new("test", "", 100, 0, 10, 15)
+	return Firewall.new()

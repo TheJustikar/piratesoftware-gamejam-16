@@ -7,6 +7,7 @@ var isSelected: bool = false
 func _ready() -> void:
 	$Background.color = Color.GRAY
 
+
 func intializeWith(upgrade: Upgrade):
 	if upgrade.spritePath.length() > 0:
 		$MarginContainer/HBoxContainer/CenterContainer/TextureRect.texture = load(upgrade.spritePath)

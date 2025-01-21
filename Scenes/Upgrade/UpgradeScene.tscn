@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="1_r4aol"]
 [ext_resource type="Script" path="res://Scenes/Upgrade/upgrade_scene.gd" id="2_6743p"]
+[ext_resource type="PackedScene" uid="uid://c6exjqad4wwnj" path="res://GameObjects/Characters/character_scene.tscn" id="3_lcvpk"]
 [ext_resource type="PackedScene" uid="uid://uxejusibc1ep" path="res://Scenes/Upgrade/upgrade_selection.tscn" id="3_sobt1"]
 [ext_resource type="Texture2D" uid="uid://cyby80we4y51g" path="res://GlobalAssets/battleground.png" id="3_uca3y"]
 
@@ -46,12 +47,15 @@ layout_mode = 2
 theme_override_constants/separation = 800
 alignment = 1
 
-[node name="Character" type="VBoxContainer" parent="MarginContainer/CenterContainer/HSplitContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/HSplitContainer"]
 layout_mode = 2
 
-[node name="CharacterStatsLabel" type="Label" parent="MarginContainer/CenterContainer/HSplitContainer/Character"]
+[node name="Control" type="Control" parent="MarginContainer/CenterContainer/HSplitContainer/CenterContainer"]
 layout_mode = 2
-text = "Current Stats:"
+
+[node name="Character" parent="MarginContainer/CenterContainer/HSplitContainer/CenterContainer/Control" instance=ExtResource("3_lcvpk")]
+scale = Vector2(2.5, 2.5)
+showStats = 2
 
 [node name="Upgrades" type="VBoxContainer" parent="MarginContainer/CenterContainer/HSplitContainer"]
 layout_mode = 2
