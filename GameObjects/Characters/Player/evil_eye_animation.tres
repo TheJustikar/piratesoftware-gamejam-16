@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://b1ys8i7rquho0"]
+
+[ext_resource type="Texture2D" uid="uid://bk86ojm8gh70r" path="res://GameObjects/Characters/Player/evil_eye.png" id="1_ar3nu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b0cf"]
+atlas = ExtResource("1_ar3nu")
+region = Rect2(0, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b0cf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
