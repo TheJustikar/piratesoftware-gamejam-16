@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6exjqad4wwnj"]
+
+[ext_resource type="Script" path="res://GameObjects/Characters/character_scene.gd" id="1_5afkb"]
+[ext_resource type="SpriteFrames" uid="uid://jga848ts8rx" path="res://GameObjects/Characters/Enemies/firewall_animation.tres" id="2_85iq4"]
+
+[node name="Character" type="Node2D"]
+script = ExtResource("1_5afkb")
+metadata/_edit_group_ = true
+
+[node name="TopCenterContainer" type="CenterContainer" parent="."]
+offset_left = -64.0
+offset_top = -90.0
+offset_right = 64.0
+offset_bottom = -67.0
+
+[node name="NameLabel" type="Label" parent="TopCenterContainer"]
+layout_mode = 2
+text = "Name"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_85iq4")
+animation = &"idle"
+
+[node name="BottomCenterContainer" type="CenterContainer" parent="."]
+offset_left = -64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 114.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BottomCenterContainer"]
+layout_mode = 2
+
+[node name="HPLabel" type="Label" parent="BottomCenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "HP: 100"
+
+[node name="TimeToAttackLabel" type="Label" parent="BottomCenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Attacks in 0"
