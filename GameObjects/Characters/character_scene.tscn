@@ -7,13 +7,13 @@
 script = ExtResource("1_5afkb")
 metadata/_edit_group_ = true
 
-[node name="TopCenterContainer" type="CenterContainer" parent="."]
+[node name="NameContainer" type="CenterContainer" parent="."]
 offset_left = -64.0
 offset_top = -90.0
 offset_right = 64.0
 offset_bottom = -67.0
 
-[node name="NameLabel" type="Label" parent="TopCenterContainer"]
+[node name="NameLabel" type="Label" parent="NameContainer"]
 layout_mode = 2
 text = "Name"
 
@@ -21,19 +21,29 @@ text = "Name"
 sprite_frames = ExtResource("2_85iq4")
 animation = &"idle"
 
-[node name="BottomCenterContainer" type="CenterContainer" parent="."]
+[node name="BattleStatsContainer" type="CenterContainer" parent="."]
 offset_left = -64.0
 offset_top = 64.0
 offset_right = 64.0
 offset_bottom = 114.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BottomCenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleStatsContainer"]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="BottomCenterContainer/VBoxContainer"]
+[node name="HPLabel" type="Label" parent="BattleStatsContainer/VBoxContainer"]
 layout_mode = 2
 text = "HP: 100"
 
-[node name="TimeToAttackLabel" type="Label" parent="BottomCenterContainer/VBoxContainer"]
+[node name="TimeToAttackLabel" type="Label" parent="BattleStatsContainer/VBoxContainer"]
 layout_mode = 2
 text = "Attacks in 0"
+
+[node name="AllStatsContainer" type="CenterContainer" parent="."]
+offset_left = -64.0
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 87.0
+
+[node name="AllStatsLabel" type="Label" parent="AllStatsContainer"]
+layout_mode = 2
+text = "HP: 100"

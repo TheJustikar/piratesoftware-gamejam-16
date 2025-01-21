@@ -9,12 +9,12 @@ script = ExtResource("1_orgtg")
 [node name="Player" parent="." instance=ExtResource("2_tovw6")]
 position = Vector2(403, 531)
 scale = Vector2(2.5, 2.5)
-showCombatStats = true
+showStats = 1
 
 [node name="Enemy" parent="." instance=ExtResource("2_tovw6")]
 position = Vector2(1500, 546)
 scale = Vector2(2.5, 2.5)
-showCombatStats = true
+showStats = 1
 
 [node name="TimeLabel" type="Label" parent="."]
 offset_left = 918.0
