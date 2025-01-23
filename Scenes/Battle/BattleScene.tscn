@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://53d6n0mbvlhj"]
+[gd_scene load_steps=4 format=3 uid="uid://53d6n0mbvlhj"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle_scene.gd" id="1_orgtg"]
-[ext_resource type="PackedScene" uid="uid://c6exjqad4wwnj" path="res://GameObjects/Characters/character_scene.tscn" id="2_tovw6"]
-[ext_resource type="Texture2D" uid="uid://cyby80we4y51g" path="res://GlobalAssets/battleground.png" id="2_d8utd"]
+[ext_resource type="Texture2D" uid="uid://dnhyw006v1ofu" path="res://Scenes/Battle/battleground.png" id="2_m0nud"]
+[ext_resource type="PackedScene" uid="uid://cygs6ackkbhvc" path="res://GameObjects/Characters/character_scene.tscn" id="2_tovw6"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_orgtg")
@@ -16,15 +16,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_d8utd")
+texture = ExtResource("2_m0nud")
 
 [node name="Player" parent="." instance=ExtResource("2_tovw6")]
-position = Vector2(403, 531)
+position = Vector2(371, 597)
 scale = Vector2(2.5, 2.5)
 showStats = 1
 
 [node name="Enemy" parent="." instance=ExtResource("2_tovw6")]
-position = Vector2(1500, 546)
+position = Vector2(1370, 614)
 scale = Vector2(2.5, 2.5)
 showStats = 1
 
