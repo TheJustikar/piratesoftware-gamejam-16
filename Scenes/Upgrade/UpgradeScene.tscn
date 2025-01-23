@@ -54,7 +54,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Character" parent="MarginContainer/CenterContainer/HSplitContainer/CenterContainer/Control" instance=ExtResource("3_lcvpk")]
-position = Vector2(-70, 47)
+position = Vector2(-68, -39)
 scale = Vector2(2.5, 2.5)
 showStats = 2
 
