@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://du5y6pqqh5pbj"]
+[gd_scene load_steps=7 format=3 uid="uid://du5y6pqqh5pbj"]
 
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="1_r4aol"]
 [ext_resource type="Script" path="res://Scenes/Upgrade/upgrade_scene.gd" id="2_6743p"]
+[ext_resource type="Texture2D" uid="uid://deu2mmn5quybh" path="res://GlobalAssets/background.png" id="3_iudce"]
 [ext_resource type="PackedScene" uid="uid://cygs6ackkbhvc" path="res://GameObjects/Characters/character_scene.tscn" id="3_lcvpk"]
 [ext_resource type="PackedScene" uid="uid://uxejusibc1ep" path="res://Scenes/Upgrade/upgrade_selection.tscn" id="3_sobt1"]
-[ext_resource type="Texture2D" uid="uid://cyby80we4y51g" path="res://GlobalAssets/battleground.png" id="3_uca3y"]
-[ext_resource type="ButtonGroup" uid="uid://bk5iv2ync44ra" path="res://Scenes/Upgrade/upgrade_button_group.tres" id="6_31vfj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phy68"]
 
@@ -66,15 +65,12 @@ alignment = 1
 
 [node name="UpgradeSelection1" parent="MarginContainer/CenterContainer/HSplitContainer/Upgrades" instance=ExtResource("3_sobt1")]
 layout_mode = 2
-buttonGroup = ExtResource("6_31vfj")
 
 [node name="UpgradeSelection2" parent="MarginContainer/CenterContainer/HSplitContainer/Upgrades" instance=ExtResource("3_sobt1")]
 layout_mode = 2
-buttonGroup = ExtResource("6_31vfj")
 
 [node name="UpgradeSelection3" parent="MarginContainer/CenterContainer/HSplitContainer/Upgrades" instance=ExtResource("3_sobt1")]
 layout_mode = 2
-buttonGroup = ExtResource("6_31vfj")
 
 [node name="CenterContainer" type="CenterContainer" parent="MarginContainer/CenterContainer/HSplitContainer/Upgrades"]
 layout_mode = 2

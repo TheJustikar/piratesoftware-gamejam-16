@@ -3,8 +3,6 @@ extends Control
 
 @onready
 var _upgrades: Array[Upgrade] = []
-
-@onready
 var _currentSelection: int = -1
 
 
@@ -32,13 +30,19 @@ func _on_confirm_button_button_up() -> void:
 func _on_select_upgrade_1_button_toggled() -> void:
 	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
 	_currentSelection = 0
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection2.untoggle()
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection3.untoggle()
 
 
 func _on_select_upgrade_2_button_toggled() -> void:
 	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
 	_currentSelection = 1
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection1.untoggle()
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection3.untoggle()
 
 
 func _on_select_upgrade_3_button_toggled() -> void:
 	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
 	_currentSelection = 2
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection1.untoggle()
+	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection2.untoggle()
