@@ -5,6 +5,11 @@ enum Stats {NONE, BATTLE, ALL}
 var _character: Character
 @export
 var showStats: Stats = Stats.NONE
+@export
+var showName: bool =  true
+
+func _ready() -> void:
+	update()
 
 func intializeWith(character: Character):
 	self._character = character
@@ -14,16 +19,19 @@ func intializeWith(character: Character):
 	update()
 
 func update(time: int = 0):
+	$Control/NameContainer.visible = showName
 	match showStats:
 		Stats.NONE:
 			$Control/BattleStatsContainer.visible = false
 			$Control/AllStatsContainer.visible = false
 		Stats.BATTLE:
-			$Control/BattleStatsContainer.visible = true
 			$Control/AllStatsContainer.visible = false
-			$Control/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
-			$Control/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
+			if _character != null:
+				$Control/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
+				$Control/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
+				$Control/BattleStatsContainer.visible = true
 		Stats.ALL:
 			$Control/BattleStatsContainer.visible = false
-			$Control/AllStatsContainer.visible = true
-			$Control/AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
+			if _character != null:
+				$Control/AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
+				$Control/AllStatsContainer.visible = true
