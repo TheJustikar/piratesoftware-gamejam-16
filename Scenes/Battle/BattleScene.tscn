@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://53d6n0mbvlhj"]
+[gd_scene load_steps=5 format=3 uid="uid://53d6n0mbvlhj"]
 
 [ext_resource type="Script" path="res://Scenes/Battle/battle_scene.gd" id="1_orgtg"]
 [ext_resource type="Texture2D" uid="uid://dnhyw006v1ofu" path="res://Scenes/Battle/battleground.png" id="2_m0nud"]
 [ext_resource type="PackedScene" uid="uid://cygs6ackkbhvc" path="res://GameObjects/Characters/character_scene.tscn" id="2_tovw6"]
+[ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="4_o8exy"]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource("1_orgtg")
@@ -33,4 +34,5 @@ offset_left = 918.0
 offset_top = 209.0
 offset_right = 958.0
 offset_bottom = 232.0
+theme = ExtResource("4_o8exy")
 text = "Current time: 0"
