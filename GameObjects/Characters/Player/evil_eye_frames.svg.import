@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk86ojm8gh70r"
-path="res://.godot/imported/evil_eye.png-1fbcd42eb181583d69b4f32320698fa7.ctex"
+uid="uid://kimhtlon0pwp"
+path="res://.godot/imported/evil_eye_frames.svg-bcebcd2c323907dc427d3c053356fd06.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameObjects/Characters/Player/evil_eye.png"
-dest_files=["res://.godot/imported/evil_eye.png-1fbcd42eb181583d69b4f32320698fa7.ctex"]
+source_file="res://GameObjects/Characters/Player/evil_eye_frames.svg"
+dest_files=["res://.godot/imported/evil_eye_frames.svg-bcebcd2c323907dc427d3c053356fd06.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
