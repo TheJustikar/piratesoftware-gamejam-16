@@ -1,9 +1,9 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://dea4r1m0v77ur"]
 
 [ext_resource type="FontFile" uid="uid://baogu4bi5lla6" path="res://GlobalAssets/tiny5/fonts/ttf/Tiny5-LCDBold.ttf" id="1_djn76"]
-[ext_resource type="StyleBox" uid="uid://dww7scha13nyv" path="res://GlobalAssets/popup_disable.tres" id="2_m0655"]
-[ext_resource type="StyleBox" uid="uid://dsy67hwcmjhsq" path="res://GlobalAssets/popup_focus.tres" id="3_vu868"]
-[ext_resource type="StyleBox" uid="uid://c708m2h4q180g" path="res://GlobalAssets/popup_default.tres" id="4_0568q"]
+[ext_resource type="StyleBox" path="res://GlobalAssets/popup_disable.tres" id="2_m0655"]
+[ext_resource type="StyleBox" path="res://GlobalAssets/popup_focus.tres" id="3_vu868"]
+[ext_resource type="StyleBox" path="res://GlobalAssets/popup_default.tres" id="4_0568q"]
 
 [resource]
 Button/colors/font_color = Color(0.792157, 0.207843, 0.454902, 1)

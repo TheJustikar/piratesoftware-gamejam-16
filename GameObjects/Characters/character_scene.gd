@@ -1,29 +1,39 @@
-extends Node2D
+@tool
+class_name CharacterScene extends HBoxContainer
 
 enum Stats {NONE, BATTLE, ALL}
 
-var _character: Character
+var _character: Character = EvilEye.new()
 @export
 var showStats: Stats = Stats.NONE
+@export
+var showName: bool =  true
+
+func _ready() -> void:
+	update()
 
 func intializeWith(character: Character):
 	self._character = character
-	$Control/NameContainer/NameLabel.text = character.name
-	if character.spritePath.length() > 0:
-		$AnimatedSprite2D.sprite_frames = load(character.spritePath)
 	update()
 
 func update(time: int = 0):
+	$VBoxContainer/NameContainer/NameLabel.text = _character.name
+	$VBoxContainer/NameContainer.visible = showName
+	
+	if _character.spritePath.length() > 0:
+		$VBoxContainer/AnimatedTextureRect.spriteFrames = load(_character.spritePath)
+		$VBoxContainer/AnimatedTextureRect.playing = true
+	
 	match showStats:
 		Stats.NONE:
-			$Control/BattleStatsContainer.visible = false
-			$Control/AllStatsContainer.visible = false
+			$VBoxContainer/BattleStatsContainer.visible = false
+			$AllStatsContainer.visible = false
 		Stats.BATTLE:
-			$Control/BattleStatsContainer.visible = true
-			$Control/AllStatsContainer.visible = false
-			$Control/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
-			$Control/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
+			$AllStatsContainer.visible = false
+			$VBoxContainer/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
+			$VBoxContainer/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
+			$VBoxContainer/BattleStatsContainer.visible = true
 		Stats.ALL:
-			$Control/BattleStatsContainer.visible = false
-			$Control/AllStatsContainer.visible = true
-			$Control/AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
+			$VBoxContainer/BattleStatsContainer.visible = false
+			$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
+			$AllStatsContainer.visible = true

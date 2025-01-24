@@ -3,13 +3,12 @@ extends Control
 
 @onready
 var _upgrades: Array[Upgrade] = []
-
 @onready
 var _currentSelection: int = -1
 
 
-func _ready() -> void:
-	$MarginContainer/CenterContainer/HSplitContainer/CenterContainer/Control/Character.intializeWith(Global.player())
+func _ready() -> void:	
+	$Character.intializeWith(Global.player())
 	
 	var pickedUpgrades = []
 	
@@ -21,7 +20,7 @@ func _ready() -> void:
 	for i in range(3):
 		var upgrade = pickedUpgrades[i].new()
 		_upgrades.append(upgrade)
-		get_node(NodePath("MarginContainer/CenterContainer/HSplitContainer/Upgrades/UpgradeSelection%s"% (i + 1))).intializeWith(upgrade)
+		get_node(NodePath("Upgrades/UpgradeSelection%s"% (i + 1))).intializeWith(upgrade)
 
 
 func _on_confirm_button_button_up() -> void:
@@ -30,15 +29,15 @@ func _on_confirm_button_button_up() -> void:
 
 
 func _on_select_upgrade_1_button_toggled() -> void:
-	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
+	$Upgrades/CenterContainer/ConfirmButton.disabled = false
 	_currentSelection = 0
 
 
 func _on_select_upgrade_2_button_toggled() -> void:
-	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
+	$Upgrades/CenterContainer/ConfirmButton.disabled = false
 	_currentSelection = 1
 
 
 func _on_select_upgrade_3_button_toggled() -> void:
-	$MarginContainer/CenterContainer/HSplitContainer/Upgrades/CenterContainer/ConfirmButton.disabled = false
+	$Upgrades/CenterContainer/ConfirmButton.disabled = false
 	_currentSelection = 2

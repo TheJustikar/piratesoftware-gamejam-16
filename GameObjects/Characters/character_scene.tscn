@@ -1,63 +1,60 @@
 [gd_scene load_steps=5 format=3 uid="uid://cygs6ackkbhvc"]
 
 [ext_resource type="Script" path="res://GameObjects/Characters/character_scene.gd" id="1_5afkb"]
-[ext_resource type="SpriteFrames" uid="uid://b1ys8i7rquho0" path="res://GameObjects/Characters/Player/evil_eye_animation.tres" id="2_8su2j"]
+[ext_resource type="PackedScene" uid="uid://bj2txmt6rt1hf" path="res://Helpers/AnimatedTextureRect.tscn" id="2_kpwix"]
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="3_yy24c"]
 [ext_resource type="StyleBox" uid="uid://ckr8q6ef8wmln" path="res://GlobalAssets/popup_label.tres" id="4_dlg4x"]
 
-[node name="Character" type="Node2D"]
-script = ExtResource("1_5afkb")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_8su2j")
-autoplay = "default"
-frame_progress = 0.296069
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Character" type="HBoxContainer"]
+offset_right = 148.0
+offset_bottom = 68.0
 theme = ExtResource("3_yy24c")
-
-[node name="NameContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -128.0
-offset_right = 64.0
-offset_bottom = -75.0
+theme_override_constants/separation = 15
+alignment = 1
+script = ExtResource("1_5afkb")
 metadata/_edit_group_ = true
 
-[node name="NameLabel" type="Label" parent="Control/NameContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="NameContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="NameLabel" type="Label" parent="VBoxContainer/NameContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_dlg4x")
 text = "Name"
 
-[node name="BattleStatsContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 114.0
+[node name="AnimatedTextureRect" parent="VBoxContainer" instance=ExtResource("2_kpwix")]
+layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+autoplay = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/BattleStatsContainer"]
+[node name="BattleStatsContainer" type="CenterContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="HPLabel" type="Label" parent="Control/BattleStatsContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BattleStatsContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HPLabel" type="Label" parent="VBoxContainer/BattleStatsContainer/VBoxContainer"]
 layout_mode = 2
 text = "HP: 100"
 
-[node name="TimeToAttackLabel" type="Label" parent="Control/BattleStatsContainer/VBoxContainer"]
+[node name="TimeToAttackLabel" type="Label" parent="VBoxContainer/BattleStatsContainer/VBoxContainer"]
 layout_mode = 2
 text = "Attacks in 0"
 
-[node name="AllStatsContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_left = 79.0
-offset_top = -70.0
-offset_right = 227.0
-offset_bottom = -17.0
+[node name="AllStatsContainer" type="CenterContainer" parent="."]
+layout_mode = 2
 metadata/_edit_group_ = true
 
-[node name="AllStatsLabel" type="Label" parent="Control/AllStatsContainer"]
+[node name="AllStatsLabel" type="Label" parent="AllStatsContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_dlg4x")
 text = "HP: 100"

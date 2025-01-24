@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="1_6756q"]
 [ext_resource type="Script" path="res://Scenes/GameOver/game_over_scene.gd" id="2_dd2i6"]
-[ext_resource type="Texture2D" uid="uid://cyby80we4y51g" path="res://GlobalAssets/battleground.png" id="3_yt3gd"]
+[ext_resource type="Texture2D" uid="uid://deu2mmn5quybh" path="res://GlobalAssets/background.png" id="3_i2unk"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_yt3gd")
+texture = ExtResource("3_i2unk")
 
 [node name="RestartButton" type="Button" parent="."]
 layout_mode = 1
