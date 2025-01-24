@@ -7,33 +7,49 @@ var _character: Character = EvilEye.new()
 @export
 var showStats: Stats = Stats.NONE
 @export
-var showName: bool =  true
+var showName: bool = true
+@export
+var showHpBarOnRight = false
 
 func _ready() -> void:
 	update()
 
 func intializeWith(character: Character):
 	self._character = character
+	$HPContainer/CenterContainer/HPBar.max_value = character.health
+	$MainContainer/TimeToAttackBar.max_value = character.hitRate
 	update()
 
 func update(time: int = 0):
-	$VBoxContainer/NameContainer/NameLabel.text = _character.name
-	$VBoxContainer/NameContainer.visible = showName
+	$MainContainer/NameContainer/NameLabel.text = _character.name
+	$MainContainer/NameContainer.visible = showName
+	
+	if showHpBarOnRight:
+		move_child($HPContainer, 1)
+	else:
+		move_child($HPContainer, 0)
 	
 	if _character.spritePath.length() > 0:
-		$VBoxContainer/AnimatedTextureRect.spriteFrames = load(_character.spritePath)
-		$VBoxContainer/AnimatedTextureRect.playing = true
+		$MainContainer/AnimatedTextureRect.spriteFrames = load(_character.spritePath)
+		$MainContainer/AnimatedTextureRect.playing = true
 	
 	match showStats:
 		Stats.NONE:
-			$VBoxContainer/BattleStatsContainer.visible = false
+			$HPContainer.visible = false
+			$MainContainer/TimeToAttackBar.visible = false
 			$AllStatsContainer.visible = false
 		Stats.BATTLE:
 			$AllStatsContainer.visible = false
-			$VBoxContainer/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
-			$VBoxContainer/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
-			$VBoxContainer/BattleStatsContainer.visible = true
+
+			$HPContainer/CenterContainer/HPBar.value = _character.health
+			$HPContainer/HPLabel.text = "%s" % _character.health
+			$HPContainer.visible = true
+			
+			$MainContainer/TimeToAttackBar.value = _character.timeToAttack(time)
+			$MainContainer/TimeToAttackBar.visible = true
 		Stats.ALL:
-			$VBoxContainer/BattleStatsContainer.visible = false
+			$HPContainer.visible = false
+			$MainContainer/TimeToAttackBar.visible = false
+			
 			$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
 			$AllStatsContainer.visible = true

@@ -33,6 +33,7 @@ anchor_bottom = 0.8
 offset_right = 0.0
 offset_bottom = 0.0
 showStats = 1
+showHpBarOnRight = false
 
 [node name="Enemy" parent="." instance=ExtResource("2_tovw6")]
 layout_mode = 1
@@ -44,6 +45,7 @@ anchor_bottom = 0.8
 offset_right = 0.0
 offset_bottom = 0.0
 showStats = 1
+showHpBarOnRight = true
 
 [node name="TimeLabel" type="Label" parent="."]
 layout_mode = 0

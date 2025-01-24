@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://deu2mmn5quybh" path="res://GlobalAssets/background.png" id="3_iudce"]
 [ext_resource type="PackedScene" uid="uid://cygs6ackkbhvc" path="res://GameObjects/Characters/character_scene.tscn" id="3_lcvpk"]
 [ext_resource type="PackedScene" uid="uid://uxejusibc1ep" path="res://Scenes/Upgrade/upgrade_selection.tscn" id="3_sobt1"]
-[ext_resource type="ButtonGroup" path="res://Scenes/Upgrade/upgrade_button_group.tres" id="6_31vfj"]
+[ext_resource type="ButtonGroup" uid="uid://bk5iv2ync44ra" path="res://Scenes/Upgrade/upgrade_button_group.tres" id="6_31vfj"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phy68"]
 

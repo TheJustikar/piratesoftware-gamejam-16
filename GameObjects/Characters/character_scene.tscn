@@ -1,9 +1,34 @@
-[gd_scene load_steps=5 format=3 uid="uid://cygs6ackkbhvc"]
+[gd_scene load_steps=13 format=3 uid="uid://cygs6ackkbhvc"]
 
 [ext_resource type="Script" path="res://GameObjects/Characters/character_scene.gd" id="1_5afkb"]
 [ext_resource type="PackedScene" uid="uid://bj2txmt6rt1hf" path="res://Helpers/AnimatedTextureRect.tscn" id="2_kpwix"]
+[ext_resource type="StyleBox" uid="uid://d0peepwjg530t" path="res://GlobalAssets/hp_bar_background.tres" id="3_lt2uj"]
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="3_yy24c"]
+[ext_resource type="StyleBox" uid="uid://7hofbm754psk" path="res://GlobalAssets/hp_bar_fill.tres" id="4_ad764"]
 [ext_resource type="StyleBox" uid="uid://ckr8q6ef8wmln" path="res://GlobalAssets/popup_label.tres" id="4_dlg4x"]
+[ext_resource type="Texture2D" uid="uid://cnid01hp8vkmc" path="res://GlobalAssets/window.png" id="7_gokl1"]
+[ext_resource type="Texture2D" uid="uid://kimhtlon0pwp" path="res://GameObjects/Characters/Player/evil_eye_frames.svg" id="7_vba4e"]
+[ext_resource type="SpriteFrames" uid="uid://b1ys8i7rquho0" path="res://GameObjects/Characters/Player/evil_eye_animation.tres" id="8_0712i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8362"]
+atlas = ExtResource("7_vba4e")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2paxt"]
+texture = ExtResource("7_gokl1")
+texture_margin_left = 3.0
+texture_margin_top = 2.87775
+texture_margin_right = 2.9367
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(0, 22, 128, 84)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttfil"]
+texture = ExtResource("7_gokl1")
+region_rect = Rect2(3, 153, 122, 78)
 
 [node name="Character" type="HBoxContainer"]
 offset_right = 148.0
@@ -12,45 +37,68 @@ theme = ExtResource("3_yy24c")
 theme_override_constants/separation = 15
 alignment = 1
 script = ExtResource("1_5afkb")
+showHpBarOnRight = null
 metadata/_edit_group_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HPContainer" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HPContainer"]
+layout_mode = 2
+
+[node name="HPBar" type="ProgressBar" parent="HPContainer/CenterContainer"]
+custom_minimum_size = Vector2(25, 250)
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_lt2uj")
+theme_override_styles/fill = ExtResource("4_ad764")
+step = 1.0
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="HPContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="NameContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="NameContainer" type="CenterContainer" parent="MainContainer"]
 layout_mode = 2
 metadata/_edit_group_ = true
 
-[node name="NameLabel" type="Label" parent="VBoxContainer/NameContainer"]
+[node name="NameLabel" type="Label" parent="MainContainer/NameContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_dlg4x")
-text = "Name"
+text = "EvilEye"
 
-[node name="AnimatedTextureRect" parent="VBoxContainer" instance=ExtResource("2_kpwix")]
+[node name="AnimatedTextureRect" parent="MainContainer" instance=ExtResource("2_kpwix")]
 layout_mode = 2
 size_flags_vertical = 3
+texture = SubResource("AtlasTexture_m8362")
 stretch_mode = 5
+spriteFrames = ExtResource("8_0712i")
+frameIndex = 5
 autoplay = true
 
-[node name="BattleStatsContainer" type="CenterContainer" parent="VBoxContainer"]
+[node name="TimeToAttackBar" type="ProgressBar" parent="MainContainer"]
+visible = false
 layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/BattleStatsContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="HPLabel" type="Label" parent="VBoxContainer/BattleStatsContainer/VBoxContainer"]
-layout_mode = 2
-text = "HP: 100"
-
-[node name="TimeToAttackLabel" type="Label" parent="VBoxContainer/BattleStatsContainer/VBoxContainer"]
-layout_mode = 2
-text = "Attacks in 0"
+theme_override_styles/background = SubResource("StyleBoxTexture_2paxt")
+theme_override_styles/fill = SubResource("StyleBoxTexture_ttfil")
+step = 1.0
+value = 50.0
 
 [node name="AllStatsContainer" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_edit_group_ = true
 
