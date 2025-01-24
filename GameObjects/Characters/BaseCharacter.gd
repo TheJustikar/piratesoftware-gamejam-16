@@ -17,10 +17,10 @@ func _init(name: String, spritePath: String, health: int, defense: int, damage: 
 
 
 func shouldAttack(currentTime: int) -> bool: 
-	return currentTime != 0 && currentTime % self.hitRate == 0
+	return currentTime != 0 && timeToAttack(currentTime) == 0
 
 
-func timeToAttack(currentTime: int) -> int: return self.hitRate - (currentTime % self.hitRate)
+func timeToAttack(currentTime: int) -> int: return currentTime % self.hitRate
 
 
 func takeDamage(damage: int): 
