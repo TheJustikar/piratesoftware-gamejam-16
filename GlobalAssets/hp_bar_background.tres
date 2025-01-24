@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://d0peepwjg530t"]
+
+[ext_resource type="Texture2D" uid="uid://dap77y3hoy6p1" path="res://GlobalAssets/hp_bar.png" id="1_bb5qr"]
+
+[resource]
+texture = ExtResource("1_bb5qr")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+region_rect = Rect2(14, 25, 46, 215)

@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://7hofbm754psk"]
+
+[ext_resource type="Texture2D" uid="uid://dap77y3hoy6p1" path="res://GlobalAssets/hp_bar.png" id="1_o7g87"]
+
+[resource]
+texture = ExtResource("1_o7g87")
+texture_margin_top = 20.0
+region_rect = Rect2(80, 29, 38, 207)
