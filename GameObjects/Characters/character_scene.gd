@@ -1,4 +1,5 @@
-extends Node2D
+@tool
+class_name CharacterScene extends HBoxContainer
 
 enum Stats {NONE, BATTLE, ALL}
 
@@ -16,20 +17,23 @@ func intializeWith(character: Character):
 	update()
 
 func update(time: int = 0):
-	$Control/NameContainer/NameLabel.text = _character.name
+	$VBoxContainer/NameContainer/NameLabel.text = _character.name
+	$VBoxContainer/NameContainer.visible = showName
+	
 	if _character.spritePath.length() > 0:
-		$AnimatedSprite2D.sprite_frames = load(_character.spritePath)
-	$Control/NameContainer.visible = showName
+		$VBoxContainer/AnimatedTextureRect.spriteFrames = load(_character.spritePath)
+		$VBoxContainer/AnimatedTextureRect.playing = true
+	
 	match showStats:
 		Stats.NONE:
-			$Control/BattleStatsContainer.visible = false
-			$Control/AllStatsContainer.visible = false
+			$VBoxContainer/BattleStatsContainer.visible = false
+			$AllStatsContainer.visible = false
 		Stats.BATTLE:
-			$Control/AllStatsContainer.visible = false
-			$Control/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
-			$Control/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
-			$Control/BattleStatsContainer.visible = true
+			$AllStatsContainer.visible = false
+			$VBoxContainer/BattleStatsContainer/VBoxContainer/TimeToAttackLabel.text = "Attacks in %s" % _character.timeToAttack(time)
+			$VBoxContainer/BattleStatsContainer/VBoxContainer/HPLabel.text = "HP: %s" % _character.health
+			$VBoxContainer/BattleStatsContainer.visible = true
 		Stats.ALL:
-			$Control/BattleStatsContainer.visible = false
-			$Control/AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
-			$Control/AllStatsContainer.visible = true
+			$VBoxContainer/BattleStatsContainer.visible = false
+			$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
+			$AllStatsContainer.visible = true

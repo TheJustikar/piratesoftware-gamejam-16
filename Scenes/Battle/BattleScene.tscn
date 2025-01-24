@@ -5,13 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://cygs6ackkbhvc" path="res://GameObjects/Characters/character_scene.tscn" id="2_tovw6"]
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="4_o8exy"]
 
-[node name="Battle" type="Node2D"]
+[node name="Battle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_orgtg")
 
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,19 +24,32 @@ grow_vertical = 2
 texture = ExtResource("2_m0nud")
 
 [node name="Player" parent="." instance=ExtResource("2_tovw6")]
-position = Vector2(371, 597)
-scale = Vector2(2.5, 2.5)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.35
+anchor_right = 0.3
+anchor_bottom = 0.8
+offset_right = 0.0
+offset_bottom = 0.0
 showStats = 1
 
 [node name="Enemy" parent="." instance=ExtResource("2_tovw6")]
-position = Vector2(1370, 614)
-scale = Vector2(2.5, 2.5)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.6
+anchor_top = 0.35
+anchor_right = 0.8
+anchor_bottom = 0.8
+offset_right = 0.0
+offset_bottom = 0.0
 showStats = 1
 
 [node name="TimeLabel" type="Label" parent="."]
-offset_left = 918.0
-offset_top = 209.0
-offset_right = 958.0
-offset_bottom = 232.0
+layout_mode = 0
+offset_left = 736.0
+offset_top = 205.0
+offset_right = 995.0
+offset_bottom = 238.0
 theme = ExtResource("4_o8exy")
 text = "Current time: 0"

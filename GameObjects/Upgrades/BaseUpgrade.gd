@@ -33,20 +33,27 @@ func _init(name: String, spritePath: String, health: int, defense: int, damage: 
 func getStatsString() -> String:
 	var stats = ""
 	if health != 0:
-		stats += "Health: %s" % health
+		stats += "Health: %s" % _checkNegatives(health)
 	if defense != 0:
 		if stats.is_empty() == false:
 			stats += "\n"
-		stats += "Defense: %s" % defense
+		stats += "Defense: %s" % _checkNegatives(defense)
 	if damage != 0:
 		if stats.is_empty() == false:
 			stats += "\n"
-		stats += "Damage: %s" % damage
+		stats += "Damage: %s" % _checkNegatives(damage)
 	if hitRate != 0:
 		if stats.is_empty() == false:
 			stats += "\n"
-		stats += "Hit Rate: %s" % hitRate
+		stats += "Hit Rate: %s" % _checkNegatives(hitRate)
 	
 	if stats.is_empty():
 		stats = "Nothing"
 	return stats
+
+
+func _checkNegatives(value: int) -> String:
+	if value < 0:
+		return "%s" % value
+	else:
+		return "+%s" % value
