@@ -17,6 +17,7 @@ toggle_mode = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 10
@@ -25,11 +26,10 @@ theme_override_constants/margin_bottom = 10
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/IconContainer"]
 layout_mode = 2
@@ -39,14 +39,17 @@ stretch_mode = 5
 
 [node name="LabelContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
 alignment = 1
 
 [node name="NameLabel" type="Label" parent="MarginContainer/HBoxContainer/LabelContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 30
 text = "Upgrade"
 horizontal_alignment = 1
+text_overrun_behavior = 3
 
 [node name="StatsLabel" type="Label" parent="MarginContainer/HBoxContainer/LabelContainer"]
 layout_mode = 2

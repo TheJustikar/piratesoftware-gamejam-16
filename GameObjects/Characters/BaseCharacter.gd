@@ -38,5 +38,4 @@ func getStatsString() -> String:
 	return """Health: %s
 	Defense: %s
 	Damage: %s
-	Hit Rate: %s
-	""" % [health, defense, damage, hitRate]
+	Hit Rate: %s""" % [health, defense, damage, hitRate]
