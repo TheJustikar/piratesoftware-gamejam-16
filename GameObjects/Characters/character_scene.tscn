@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cygs6ackkbhvc"]
+[gd_scene load_steps=10 format=3 uid="uid://cygs6ackkbhvc"]
 
 [ext_resource type="Script" path="res://GameObjects/Characters/character_scene.gd" id="1_5afkb"]
 [ext_resource type="PackedScene" uid="uid://bj2txmt6rt1hf" path="res://Helpers/AnimatedTextureRect.tscn" id="2_kpwix"]
@@ -7,12 +7,6 @@
 [ext_resource type="StyleBox" uid="uid://7hofbm754psk" path="res://GlobalAssets/hp_bar_fill.tres" id="4_ad764"]
 [ext_resource type="StyleBox" uid="uid://ckr8q6ef8wmln" path="res://GlobalAssets/popup_label.tres" id="4_dlg4x"]
 [ext_resource type="Texture2D" uid="uid://cnid01hp8vkmc" path="res://GlobalAssets/window.png" id="7_gokl1"]
-[ext_resource type="Texture2D" uid="uid://kimhtlon0pwp" path="res://GameObjects/Characters/Player/evil_eye_frames.svg" id="7_vba4e"]
-[ext_resource type="SpriteFrames" uid="uid://b1ys8i7rquho0" path="res://GameObjects/Characters/Player/evil_eye_animation.tres" id="8_0712i"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k454n"]
-atlas = ExtResource("7_vba4e")
-region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2paxt"]
 texture = ExtResource("7_gokl1")
@@ -84,10 +78,7 @@ text = "EvilEye"
 [node name="AnimatedTextureRect" parent="MainContainer" instance=ExtResource("2_kpwix")]
 layout_mode = 2
 size_flags_vertical = 3
-texture = SubResource("AtlasTexture_k454n")
 stretch_mode = 5
-spriteFrames = ExtResource("8_0712i")
-frameIndex = 6
 autoplay = true
 
 [node name="TimeToAttackBar" type="ProgressBar" parent="MainContainer"]
