@@ -37,9 +37,12 @@ func _process(delta: float) -> void:
 			
 	else:
 		Global.progress += 1
-		get_tree().change_scene_to_file("res://Scenes/Upgrade/UpgradeScene.tscn")
+		if Global.progress != Global.maxProgress:
+			get_tree().change_scene_to_file("res://Scenes/Upgrade/UpgradeScene.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
 		return
-		
+	
 	if _player.isAlive() == false:
 		get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
 		return

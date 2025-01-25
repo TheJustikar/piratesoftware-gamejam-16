@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
-Global="*res://GameObjects/Global.gd"
+Global="*res://Helpers/Global.gd"
 Colors="*res://Helpers/colors.gd"
 
 [display]

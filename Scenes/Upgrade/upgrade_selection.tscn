@@ -34,6 +34,7 @@ theme_override_constants/separation = 10
 
 [node name="IconContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/IconContainer"]
 layout_mode = 2
