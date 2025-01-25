@@ -1,18 +1,11 @@
 class_name Character extends GameObject
 
 
-var health: int
-#Damage prevention in percent
-var defense: int
-var damage: int
-var hitRate: int
+var stats: Stats
 
 
-func _init(name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
-	self.health = health
-	self.defense = defense
-	self.damage = damage
-	self.hitRate = hitRate
+func _init(name: String, spritePath: String, stats: Stats) -> void:
+	self.stats = stats
 	super(name, spritePath)
 
 
@@ -20,19 +13,18 @@ func shouldAttack(currentTime: int) -> bool:
 	return currentTime != 0 && timeToAttack(currentTime) == 0
 
 
-func timeToAttack(currentTime: int) -> int: return currentTime % self.hitRate
+func timeToAttack(currentTime: int) -> int: return currentTime % stats.hitRate
 
 
 func takeDamage(damage: int): 
-	var totalDamage = int(damage * (1 - clamp(self.defense / 100.0, -0.9, 0.9)))
-	if totalDamage > self.health:
-		self.health = 0
+	var totalDamage = int(damage * (1 - clamp(stats.defense / 100.0, -0.9, 0.9)))
+	if totalDamage > stats.health:
+		stats.health = 0
 	else:
-		self.health -= totalDamage
+		stats.health -= totalDamage
 
 
-func isAlive() -> bool: return self.health > 0
+func isAlive() -> bool: return stats.health > 0
 
 
-func getStatsString() -> String:
-	return "Health: %s\nDefense: %s\nDamage: %s\nHit Rate: %s" % [health, defense, damage, hitRate]
+func getStatsString() -> String: return stats.getStatsString()
