@@ -1,14 +1,14 @@
 @tool
 class_name CharacterScene extends HBoxContainer
 
-enum Stats {NONE, BATTLE, ALL}
+enum StatsDisplay {NONE, BATTLE, ALL}
 
 var _character: Character = EvilEye.new()
 var _previewedUpgrade: Upgrade
 
 
 @export
-var showStats: Stats = Stats.NONE
+var showStats: StatsDisplay = StatsDisplay.NONE
 @export
 var showName: bool = true
 @export
@@ -19,8 +19,8 @@ func _ready() -> void:
 
 func intializeWith(character: Character):
 	self._character = character
-	$HPContainer/CenterContainer/HPBar.max_value = character.health
-	$MainContainer/TimeToAttackBar.max_value = character.hitRate
+	$HPContainer/CenterContainer/HPBar.max_value = character.stats.health
+	$MainContainer/TimeToAttackBar.max_value = character.stats.hitRate
 	update()
 
 func update(time: int = 0):
@@ -37,20 +37,20 @@ func update(time: int = 0):
 		$MainContainer/AnimatedTextureRect.playing = true
 	
 	match showStats:
-		Stats.NONE:
+		StatsDisplay.NONE:
 			$HPContainer.visible = false
 			$MainContainer/TimeToAttackBar.visible = false
 			$AllStatsContainer.visible = false
-		Stats.BATTLE:
+		StatsDisplay.BATTLE:
 			$AllStatsContainer.visible = false
 
-			$HPContainer/CenterContainer/HPBar.value = _character.health
-			$HPContainer/HPLabel.text = "%s" % _character.health
+			$HPContainer/CenterContainer/HPBar.value = _character.stats.health
+			$HPContainer/HPLabel.text = str(_character.stats.health)
 			$HPContainer.visible = true
 			
 			$MainContainer/TimeToAttackBar.value = _character.timeToAttack(time)
 			$MainContainer/TimeToAttackBar.visible = true
-		Stats.ALL:
+		StatsDisplay.ALL:
 			$HPContainer.visible = false
 			$MainContainer/TimeToAttackBar.visible = false
 			
@@ -59,6 +59,7 @@ func update(time: int = 0):
 			else:
 				$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
 			$AllStatsContainer.visible = true
+
 
 func previewUpgrade(upgrade: Upgrade):
 	_previewedUpgrade = upgrade

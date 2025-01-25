@@ -1,46 +1,36 @@
 class_name Player extends Character
 
 
-func _init(upgrades: Array[Upgrade], name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
-	var actualHealth = health
-	var actualDefense = defense
-	var actualDamage = damage
-	var actualHitRate = hitRate
+func _init(upgrades: Array[Upgrade], name: String, spritePath: String, stats: Stats) -> void:
 	for upgrade in upgrades:
-		actualHealth += upgrade.health
-		actualDefense += upgrade.defense
-		actualDamage += upgrade.damage
-		actualHitRate += upgrade.hitRate
-		if health < 1:
-			health = 1
-		if actualDamage < 0:
-			actualDamage = 0
-		if actualHitRate < 1:
-			actualHitRate = 1
-	super(name, spritePath, actualHealth, actualDefense, actualDamage, actualHitRate)
+		stats.applyUpgrade(upgrade)
+	
+	super(name, spritePath, stats)
 
 
 func getStatsStringWithUpgrade(upgrade: Upgrade) -> String:
 	if upgrade == null:
 		return super.getStatsString()
 	
+	var modifiedStats = stats.applyUpgrade(upgrade, true)
+	
 	var highlightColorString = Colors.hpColor.to_html()
 	var richText = "[color=" + Colors.mainColor.to_html() + "]"
-	if upgrade.health != 0:
-		richText += "[color=" + highlightColorString + "]Health: %s[/color]\n" % (health + upgrade.health)
+	if upgrade.doesModifyStat(Stats.Type.HEALTH):
+		richText += "[color=" + highlightColorString + "]Health: %s[/color]\n" % modifiedStats.health
 	else:
-		richText += "Health: %s\n" % health
-	if upgrade.defense != 0:
-		richText += "[color=" + highlightColorString + "]Defense: %s[/color]\n" % (defense + upgrade.defense)
+		richText += "Health: %s\n" % modifiedStats.health
+	if upgrade.doesModifyStat(Stats.Type.DEFENSE):
+		richText += "[color=" + highlightColorString + "]Defense: %s[/color]\n" % modifiedStats.defense
 	else:
-		richText += "Defense: %s\n" % defense
-	if upgrade.damage != 0:
-		richText += "[color=" + highlightColorString + "]Damage: %s[/color]\n" % (damage + upgrade.damage)
+		richText += "Defense: %s\n" % modifiedStats.defense
+	if upgrade.doesModifyStat(Stats.Type.DAMAGE):
+		richText += "[color=" + highlightColorString + "]Damage: %s[/color]\n" % modifiedStats.damage
 	else:
-		richText += "Damage: %s\n" % damage
-	if upgrade.hitRate != 0:
-		richText += "[color=" + highlightColorString + "]Hit Rate: %s[/color]" % (hitRate + upgrade.hitRate)
+		richText += "Damage: %s\n" % modifiedStats.damage
+	if upgrade.doesModifyStat(Stats.Type.HIT_RATE):
+		richText += "[color=" + highlightColorString + "]Hit Rate: %s[/color]" % modifiedStats.hitRate
 	else:
-		richText += "Hit Rate: %s" % hitRate
+		richText += "Hit Rate: %s" % modifiedStats.hitRate
 	richText += "[/color]"
 	return richText

@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://kimhtlon0pwp" path="res://GameObjects/Characters/Player/evil_eye_frames.svg" id="7_vba4e"]
 [ext_resource type="SpriteFrames" uid="uid://b1ys8i7rquho0" path="res://GameObjects/Characters/Player/evil_eye_animation.tres" id="8_0712i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o6tpm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k454n"]
 atlas = ExtResource("7_vba4e")
-region = Rect2(896, 0, 128, 128)
+region = Rect2(768, 0, 128, 128)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2paxt"]
 texture = ExtResource("7_gokl1")
@@ -41,6 +41,7 @@ showHpBarOnRight = null
 metadata/_edit_group_ = true
 
 [node name="HPContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
@@ -83,13 +84,14 @@ text = "EvilEye"
 [node name="AnimatedTextureRect" parent="MainContainer" instance=ExtResource("2_kpwix")]
 layout_mode = 2
 size_flags_vertical = 3
-texture = SubResource("AtlasTexture_o6tpm")
+texture = SubResource("AtlasTexture_k454n")
 stretch_mode = 5
 spriteFrames = ExtResource("8_0712i")
-frameIndex = 7
+frameIndex = 6
 autoplay = true
 
 [node name="TimeToAttackBar" type="ProgressBar" parent="MainContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxTexture_2paxt")
 theme_override_styles/fill = SubResource("StyleBoxTexture_ttfil")
@@ -97,6 +99,7 @@ step = 1.0
 value = 50.0
 
 [node name="AllStatsContainer" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_edit_group_ = true
 

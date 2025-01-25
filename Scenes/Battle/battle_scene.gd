@@ -25,13 +25,13 @@ func _process(delta: float) -> void:
 	$Enemy.update(timeStep)
 	$TimeLabel.text = "Current time: %s" % timeStep
 	if _lastPlayerHit != timeStep && _player.shouldAttack(timeStep):
-		_enemy.takeDamage(_player.damage)
+		_enemy.takeDamage(_player.stats.damage)
 		_lastPlayerHit = timeStep
 		$Enemy.update(timeStep)
 		
 	if _enemy.isAlive():
 		if _lastEnemyHit != timeStep && _enemy.shouldAttack(timeStep):
-			_player.takeDamage(_enemy.damage)
+			_player.takeDamage(_enemy.stats.damage)
 			_lastEnemyHit = timeStep
 			$Player.update(timeStep)
 			
