@@ -1,6 +1,9 @@
 extends Node
 
 
+const maxProgress: int = 10
+
+
 var upgrades: Array[Upgrade] = []
 var progress: int = 0
 
