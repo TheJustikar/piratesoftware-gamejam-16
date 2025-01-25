@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dea4r1m0v77ur"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://dea4r1m0v77ur"]
 
 [ext_resource type="FontFile" uid="uid://baogu4bi5lla6" path="res://GlobalAssets/tiny5/fonts/ttf/Tiny5-LCDBold.ttf" id="1_djn76"]
 [ext_resource type="StyleBox" uid="uid://dww7scha13nyv" path="res://GlobalAssets/popup_disable.tres" id="2_m0655"]
 [ext_resource type="StyleBox" uid="uid://dsy67hwcmjhsq" path="res://GlobalAssets/popup_focus.tres" id="3_vu868"]
 [ext_resource type="StyleBox" uid="uid://c708m2h4q180g" path="res://GlobalAssets/popup_default.tres" id="4_0568q"]
+[ext_resource type="StyleBox" uid="uid://ckr8q6ef8wmln" path="res://GlobalAssets/popup_label.tres" id="5_t6u5t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqtv2"]
 content_margin_left = 2.0
@@ -29,6 +30,33 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mp364"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.75)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erxde"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+
 [resource]
 Button/colors/font_color = Color(0.792157, 0.207843, 0.454902, 1)
 Button/colors/font_disabled_color = Color(0.792157, 0.207843, 0.454902, 0.772549)
@@ -50,11 +78,12 @@ Button/styles/normal = ExtResource("4_0568q")
 Button/styles/normal_mirrored = ExtResource("4_0568q")
 Button/styles/pressed = ExtResource("3_vu868")
 Button/styles/pressed_mirrored = ExtResource("3_vu868")
-Label/colors/font_color = Color(0.737255, 0.176471, 0.415686, 1)
+Label/colors/font_color = Color(0.792157, 0.207843, 0.454902, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/font_sizes/font_size = 24
 Label/fonts/font = ExtResource("1_djn76")
+Label/styles/normal = ExtResource("5_t6u5t")
 ProgressBar/colors/font_color = Color(0.737255, 0.176471, 0.415686, 1)
 ProgressBar/colors/font_outline_color = Color(0, 0, 0, 1)
 ProgressBar/constants/outline_size = 0
@@ -62,3 +91,32 @@ ProgressBar/font_sizes/font_size = 16
 ProgressBar/fonts/font = ExtResource("1_djn76")
 ProgressBar/styles/background = SubResource("StyleBoxFlat_xqtv2")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ypv7o")
+RichTextLabel/colors/default_color = Color(0.792157, 0.207843, 0.454902, 1)
+RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_selected_color = Color(0.937255, 0.843137, 0.898039, 1)
+RichTextLabel/colors/font_shadow_color = Color(0, 0, 0, 0)
+RichTextLabel/colors/selection_color = Color(0, 0, 0, 0.8)
+RichTextLabel/colors/table_border = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_even_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/colors/table_odd_row_bg = Color(0, 0, 0, 0)
+RichTextLabel/constants/line_separation = 0
+RichTextLabel/constants/outline_size = 0
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 1
+RichTextLabel/constants/shadow_outline_size = 1
+RichTextLabel/constants/table_h_separation = 3
+RichTextLabel/constants/table_v_separation = 3
+RichTextLabel/constants/text_highlight_h_padding = 3
+RichTextLabel/constants/text_highlight_v_padding = 3
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/bold_italics_font_size = 24
+RichTextLabel/font_sizes/italics_font_size = 24
+RichTextLabel/font_sizes/mono_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/bold_font = ExtResource("1_djn76")
+RichTextLabel/fonts/bold_italics_font = ExtResource("1_djn76")
+RichTextLabel/fonts/italics_font = ExtResource("1_djn76")
+RichTextLabel/fonts/mono_font = ExtResource("1_djn76")
+RichTextLabel/fonts/normal_font = ExtResource("1_djn76")
+RichTextLabel/styles/focus = SubResource("StyleBoxFlat_mp364")
+RichTextLabel/styles/normal = SubResource("StyleBoxEmpty_erxde")

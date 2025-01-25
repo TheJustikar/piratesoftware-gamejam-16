@@ -4,6 +4,9 @@ class_name CharacterScene extends HBoxContainer
 enum Stats {NONE, BATTLE, ALL}
 
 var _character: Character = EvilEye.new()
+var _previewedUpgrade: Upgrade
+
+
 @export
 var showStats: Stats = Stats.NONE
 @export
@@ -51,8 +54,12 @@ func update(time: int = 0):
 			$HPContainer.visible = false
 			$MainContainer/TimeToAttackBar.visible = false
 			
-			$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
+			if _previewedUpgrade != null && _character is Player:
+				$AllStatsContainer/AllStatsLabel.text = _character.getStatsStringWithUpgrade(_previewedUpgrade)
+			else:
+				$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
 			$AllStatsContainer.visible = true
 
 func previewUpgrade(upgrade: Upgrade):
-	pass
+	_previewedUpgrade = upgrade
+	update()
