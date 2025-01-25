@@ -35,7 +35,4 @@ func isAlive() -> bool: return self.health > 0
 
 
 func getStatsString() -> String:
-	return """Health: %s
-	Defense: %s
-	Damage: %s
-	Hit Rate: %s""" % [health, defense, damage, hitRate]
+	return "Health: %s\nDefense: %s\nDamage: %s\nHit Rate: %s" % [health, defense, damage, hitRate]
