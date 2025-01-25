@@ -11,10 +11,10 @@ func _init(upgrades: Array[Upgrade], name: String, spritePath: String, health: i
 		actualDefense += upgrade.defense
 		actualDamage += upgrade.damage
 		actualHitRate += upgrade.hitRate
-	if health < 1:
-		health = 1
-	if actualDamage < 0:
-		actualDamage = 0
-	if actualHitRate < 1:
-		actualHitRate = 1
+		if health < 1:
+			health = 1
+		if actualDamage < 0:
+			actualDamage = 0
+		if actualHitRate < 1:
+			actualHitRate = 1
 	super(name, spritePath, actualHealth, actualDefense, actualDamage, actualHitRate)
