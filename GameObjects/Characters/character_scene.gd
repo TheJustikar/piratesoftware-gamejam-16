@@ -53,3 +53,6 @@ func update(time: int = 0):
 			
 			$AllStatsContainer/AllStatsLabel.text = _character.getStatsString()
 			$AllStatsContainer.visible = true
+
+func previewUpgrade(upgrade: Upgrade):
+	pass
