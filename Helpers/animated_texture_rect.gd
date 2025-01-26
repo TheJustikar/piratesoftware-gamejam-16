@@ -39,6 +39,8 @@ func  _process(delta: float) -> void:
 	if _frameDelta >= _refreshRate / _fps:
 		texture = getNextFrame()
 		_frameDelta = 0
+	elif texture == null:
+		texture = spriteFrames.get_frame_texture(currentAnimation, frameIndex)
 
 
 func getNextFrame() -> Texture2D:
