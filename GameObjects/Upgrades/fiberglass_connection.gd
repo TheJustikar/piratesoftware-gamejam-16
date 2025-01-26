@@ -3,7 +3,7 @@ class_name FiberglassConnection extends Upgrade
 
 func _init() -> void:
 	super(
-		"Fiberglass Connection",
+		"Fiber Connection",
 		"res://GameObjects/Upgrades/fiberglass_connection.png",
 		[
 			StatsModifier.new(
