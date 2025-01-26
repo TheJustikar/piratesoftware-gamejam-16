@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://inhyv5hguck0"]
+
+[ext_resource type="Texture2D" uid="uid://ck52v8t7ul8nb" path="res://GameObjects/Characters/Enemies/fire_chicken.png" id="1_nry6a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3cny"]
+atlas = ExtResource("1_nry6a")
+region = Rect2(0, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3cny")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://c0hydmun22put"]
+
+[ext_resource type="Texture2D" uid="uid://bv57elmgx4nkc" path="res://GameObjects/Characters/Enemies/trojan_horse.png" id="1_g1lnb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3b8n"]
+atlas = ExtResource("1_g1lnb")
+region = Rect2(0, 0, 128, 128)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3b8n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
