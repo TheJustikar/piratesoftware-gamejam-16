@@ -11,8 +11,8 @@ func _ready() -> void:
 	$Button.button_group = buttonGroup
 
 func intializeWith(upgrade: Upgrade):
-	if upgrade.spritePath.length() > 0:
-		$MarginContainer/HBoxContainer/IconContainer/TextureRect.texture = load(upgrade.spritePath)
+	if upgrade.spriteResource != null:
+		$MarginContainer/HBoxContainer/IconContainer/TextureRect.texture = upgrade.spriteResource
 	
 	$MarginContainer/HBoxContainer/LabelContainer/NameLabel.text = upgrade.name
 	$MarginContainer/HBoxContainer/LabelContainer/StatsLabel.text = upgrade.getStatsString()

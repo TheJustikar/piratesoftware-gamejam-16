@@ -73,7 +73,7 @@ metadata/_edit_group_ = true
 [node name="NameLabel" type="Label" parent="MainContainer/NameContainer"]
 layout_mode = 2
 theme_override_styles/normal = ExtResource("4_dlg4x")
-text = "EvilEye"
+text = "Name"
 
 [node name="AnimatedTextureRect" parent="MainContainer" instance=ExtResource("2_kpwix")]
 layout_mode = 2

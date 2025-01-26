@@ -4,6 +4,7 @@ extends Node
 const maxProgress: int = 10
 
 
+var player: Player = EvilEye.new()
 var upgrades: Array[Upgrade] = []
 var progress: int = 0
 
@@ -11,10 +12,7 @@ var progress: int = 0
 func reset():
 	upgrades = []
 	progress = 0
-
-
-func player() -> Player:
-	return EvilEye.new(upgrades)
+	player = EvilEye.new()
 
 
 func currentEnemy() -> Enemy:

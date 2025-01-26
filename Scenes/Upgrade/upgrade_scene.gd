@@ -7,8 +7,8 @@ var _upgrades: Array[Upgrade] = []
 var _currentSelection: int = -1
 
 
-func _ready() -> void:	
-	$Character.intializeWith(Global.player())
+func _ready() -> void:
+	$Character.intializeWith(Global.player)
 	
 	var pickedUpgrades = []
 	
@@ -24,7 +24,10 @@ func _ready() -> void:
 
 
 func _on_confirm_button_button_up() -> void:
-	Global.upgrades.append(_upgrades[_currentSelection])
+	var selectedUpgrade: Upgrade = _upgrades[_currentSelection]
+	Global.upgrades.append(selectedUpgrade)
+	Global.player.stats.applyUpgrade(selectedUpgrade)
+	Global.player.resetCurrentHealth()
 	get_tree().change_scene_to_file("res://Scenes/Battle/BattleScene.tscn")
 
 
