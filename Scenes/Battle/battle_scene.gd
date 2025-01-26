@@ -1,7 +1,7 @@
 extends Control
 
 
-var _enemy: Enemy = Global.currentEnemy()
+var _enemy: Enemy
 
 
 var _currentTime: float = 0
@@ -11,6 +11,7 @@ var _lastEnemyHit: int = -1
 
 func _ready() -> void:
 	$Player.intializeWith(Global.player)
+	_enemy = Global.currentEnemy()
 	$Enemy.intializeWith(_enemy)
 
 

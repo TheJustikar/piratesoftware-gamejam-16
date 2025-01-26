@@ -25,7 +25,6 @@ func _ready() -> void:
 
 func _on_confirm_button_button_up() -> void:
 	var selectedUpgrade: Upgrade = _upgrades[_currentSelection]
-	Global.upgrades.append(selectedUpgrade)
 	Global.player.stats.applyUpgrade(selectedUpgrade)
 	Global.player.resetCurrentHealth()
 	get_tree().change_scene_to_file("res://Scenes/Battle/BattleScene.tscn")
