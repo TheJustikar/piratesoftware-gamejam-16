@@ -1,58 +1,108 @@
-[gd_scene load_steps=4 format=3 uid="uid://cygs6ackkbhvc"]
+[gd_scene load_steps=10 format=3 uid="uid://cygs6ackkbhvc"]
 
 [ext_resource type="Script" path="res://GameObjects/Characters/character_scene.gd" id="1_5afkb"]
-[ext_resource type="SpriteFrames" uid="uid://cijnbc0vf8p0n" path="res://GameObjects/Characters/Enemies/firewall_animation.tres" id="2_85iq4"]
+[ext_resource type="PackedScene" uid="uid://bj2txmt6rt1hf" path="res://Helpers/AnimatedTextureRect.tscn" id="2_kpwix"]
+[ext_resource type="StyleBox" uid="uid://d0peepwjg530t" path="res://GlobalAssets/hp_bar_background.tres" id="3_lt2uj"]
 [ext_resource type="Theme" uid="uid://dea4r1m0v77ur" path="res://GlobalAssets/theme.tres" id="3_yy24c"]
+[ext_resource type="StyleBox" uid="uid://7hofbm754psk" path="res://GlobalAssets/hp_bar_fill.tres" id="4_ad764"]
+[ext_resource type="StyleBox" uid="uid://ckr8q6ef8wmln" path="res://GlobalAssets/popup_label.tres" id="4_dlg4x"]
+[ext_resource type="Texture2D" uid="uid://cnid01hp8vkmc" path="res://GlobalAssets/window.png" id="7_gokl1"]
 
-[node name="Character" type="Node2D"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2paxt"]
+texture = ExtResource("7_gokl1")
+texture_margin_left = 3.0
+texture_margin_top = 2.87775
+texture_margin_right = 2.9367
+texture_margin_bottom = 3.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(0, 22, 128, 84)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ttfil"]
+texture = ExtResource("7_gokl1")
+region_rect = Rect2(3, 153, 122, 78)
+
+[node name="Character" type="HBoxContainer"]
+offset_right = 148.0
+offset_bottom = 68.0
+theme = ExtResource("3_yy24c")
+theme_override_constants/separation = 20
+alignment = 1
 script = ExtResource("1_5afkb")
+showHpBarOnRight = null
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("2_85iq4")
-animation = &"idle"
-
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-theme = ExtResource("3_yy24c")
-
-[node name="NameContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = -90.0
-offset_right = 64.0
-offset_bottom = -67.0
-
-[node name="NameLabel" type="Label" parent="Control/NameContainer"]
+[node name="HPContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="HPContainer"]
+layout_mode = 2
+
+[node name="HPBar" type="ProgressBar" parent="HPContainer/CenterContainer"]
+custom_minimum_size = Vector2(25, 250)
+layout_mode = 2
+theme_override_styles/background = ExtResource("3_lt2uj")
+theme_override_styles/fill = ExtResource("4_ad764")
+step = 1.0
+value = 100.0
+fill_mode = 3
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="HPContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="NameContainer" type="CenterContainer" parent="MainContainer"]
+layout_mode = 2
+metadata/_edit_group_ = true
+
+[node name="NameLabel" type="Label" parent="MainContainer/NameContainer"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("4_dlg4x")
 text = "Name"
 
-[node name="BattleStatsContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 114.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/BattleStatsContainer"]
+[node name="AnimatedTextureRect" parent="MainContainer" instance=ExtResource("2_kpwix")]
 layout_mode = 2
+size_flags_vertical = 3
+stretch_mode = 5
+autoplay = true
 
-[node name="HPLabel" type="Label" parent="Control/BattleStatsContainer/VBoxContainer"]
+[node name="TimeToAttackBar" type="ProgressBar" parent="MainContainer"]
+visible = false
 layout_mode = 2
-text = "HP: 100"
+theme_override_styles/background = SubResource("StyleBoxTexture_2paxt")
+theme_override_styles/fill = SubResource("StyleBoxTexture_ttfil")
+step = 1.0
+value = 50.0
 
-[node name="TimeToAttackLabel" type="Label" parent="Control/BattleStatsContainer/VBoxContainer"]
+[node name="AllStatsContainer" type="CenterContainer" parent="."]
+visible = false
 layout_mode = 2
-text = "Attacks in 0"
+metadata/_edit_group_ = true
 
-[node name="AllStatsContainer" type="CenterContainer" parent="Control"]
-layout_mode = 0
-offset_left = -64.0
-offset_top = 64.0
-offset_right = 64.0
-offset_bottom = 87.0
-
-[node name="AllStatsLabel" type="Label" parent="Control/AllStatsContainer"]
+[node name="AllStatsLabel" type="RichTextLabel" parent="AllStatsContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-text = "HP: 100"
+theme_override_styles/normal = ExtResource("4_dlg4x")
+bbcode_enabled = true
+text = "Health: 100
+Defense: 100
+Damage: 100
+Hitrate: 10"
+fit_content = true
+scroll_active = false
+text_direction = 1

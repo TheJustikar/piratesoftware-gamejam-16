@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk86ojm8gh70r"
-path="res://.godot/imported/evil_eye.png-1fbcd42eb181583d69b4f32320698fa7.ctex"
+uid="uid://dap77y3hoy6p1"
+path="res://.godot/imported/hp_bar.png-01347bd8774801c99e679e5e2812b978.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameObjects/Characters/Player/evil_eye.png"
-dest_files=["res://.godot/imported/evil_eye.png-1fbcd42eb181583d69b4f32320698fa7.ctex"]
+source_file="res://GlobalAssets/hp_bar.png"
+dest_files=["res://.godot/imported/hp_bar.png-01347bd8774801c99e679e5e2812b978.ctex"]
 
 [params]
 

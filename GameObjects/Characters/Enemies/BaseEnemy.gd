@@ -1,5 +1,5 @@
 class_name Enemy extends Character
 
 
-func _init(name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
-	super(name, spritePath, health, defense, damage, hitRate)
+func _init(name: String, spritePath: String, stats: Stats) -> void:
+	super(name, spritePath, stats)

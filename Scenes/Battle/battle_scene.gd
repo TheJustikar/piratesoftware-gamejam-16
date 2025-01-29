@@ -1,8 +1,7 @@
-extends Node2D
+extends Control
 
 
-var _player: Player
-var _enemy: Enemy
+var _enemy: Enemy = Global.currentEnemy()
 
 
 var _currentTime: float = 0
@@ -11,35 +10,44 @@ var _lastEnemyHit: int = -1
 
 
 func _ready() -> void:
-	_player = Global.player()
-	_enemy = Global.currentEnemy()
-	$Player.intializeWith(_player)
+	$Player.intializeWith(Global.player)
 	$Enemy.intializeWith(_enemy)
 
 
 func _process(delta: float) -> void:
-	#TODO add timer before start
-	_currentTime += delta * 5
-	var timeStep = int(_currentTime)
-	$Player.update(timeStep)
-	$Enemy.update(timeStep)
-	$TimeLabel.text = "Current time: %s" % timeStep
-	if _lastPlayerHit != timeStep && _player.shouldAttack(timeStep):
-		_enemy.takeDamage(_player.damage)
-		_lastPlayerHit = timeStep
-		$Enemy.update(timeStep)
-		
-	if _enemy.isAlive():
-		if _lastEnemyHit != timeStep && _enemy.shouldAttack(timeStep):
-			_player.takeDamage(_enemy.damage)
-			_lastEnemyHit = timeStep
-			$Player.update(timeStep)
+	if $StartTimer.is_stopped() && $DeathTimer.is_stopped():
+		_currentTime += delta * 5
+		var timeStep = int(_currentTime)
+		$Player.updateWithTime(timeStep)
+		$Enemy.updateWithTime(timeStep)
+		$TimeLabel.text = "Current time: %s" % timeStep
+		if _lastPlayerHit != timeStep && Global.player.shouldAttack(timeStep):
+			_enemy.takeDamage(Global.player.stats.damage)
+			_lastPlayerHit = timeStep
+			$Enemy.update()
 			
-	else:
+		if _enemy.isAlive():
+			if _lastEnemyHit != timeStep && _enemy.shouldAttack(timeStep):
+				Global.player.takeDamage(_enemy.stats.damage)
+				_lastEnemyHit = timeStep
+				$Player.update()
+				
+		else:
+			$DeathTimer.start()
+			return
+	
+	if Global.player.isAlive() == false:
+		$DeathTimer.start()
+		return
+
+
+func _on_death_timer_timeout() -> void:
+	if Global.player.isAlive():
 		Global.progress += 1
-		get_tree().change_scene_to_file("res://Scenes/Upgrade/UpgradeScene.tscn")
-		return
-		
-	if _player.isAlive() == false:
+		if Global.progress != Global.maxProgress:
+			get_tree().change_scene_to_file("res://Scenes/Upgrade/UpgradeScene.tscn")
+		else:
+			get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
+		Global.player.resetCurrentHealth()
+	else:
 		get_tree().change_scene_to_file("res://Scenes/GameOver/GameOverScene.tscn")
-		return

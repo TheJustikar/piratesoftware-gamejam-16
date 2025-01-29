@@ -1,13 +1,6 @@
 class_name Upgrade extends GameObject
 
 
-var health: int
-#Damage prevention in percent
-var defense: int
-var damage: int
-var hitRate: int
-
-
 static var allUpgrades: Array = [
 	CPUCore,
 	DistributedNetwork,
@@ -22,31 +15,25 @@ static var allUpgrades: Array = [
 ]
 
 
-func _init(name: String, spritePath: String, health: int, defense: int, damage: int, hitRate: int) -> void:
-	self.health = health
-	self.defense = defense
-	self.damage = damage
-	self.hitRate = hitRate
+var modifiers: Array[StatsModifier]
+
+
+func _init(name: String, spritePath: String, modifiers: Array[StatsModifier]) -> void:
+	self.modifiers = modifiers
 	super(name, spritePath)
 
 
+func doesModifyStat(stat: Stats.Type) -> bool:
+	return modifiers.filter(
+		func(modifier): return modifier.stat == stat
+		).size() > 0
+
+
 func getStatsString() -> String:
-	var stats = ""
-	if health != 0:
-		stats += "Health: %s" % health
-	if defense != 0:
-		if stats.is_empty() == false:
-			stats += "\n"
-		stats += "Defense: %s" % defense
-	if damage != 0:
-		if stats.is_empty() == false:
-			stats += "\n"
-		stats += "Damage: %s" % damage
-	if hitRate != 0:
-		if stats.is_empty() == false:
-			stats += "\n"
-		stats += "Hit Rate: %s" % hitRate
+	if modifiers.is_empty():
+		return "Nothing"
 	
-	if stats.is_empty():
-		stats = "Nothing"
+	var stats = ""
+	for modifier in modifiers:
+		stats += modifier.getModifierString() + "\n"
 	return stats

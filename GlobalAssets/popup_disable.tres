@@ -1,0 +1,15 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dww7scha13nyv"]
+
+[ext_resource type="Texture2D" uid="uid://1cg6ffh610nm" path="res://GlobalAssets/PopUp.png" id="1_g8gyu"]
+
+[resource]
+content_margin_left = 10.0
+content_margin_top = 20.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+texture = ExtResource("1_g8gyu")
+texture_margin_left = 24.0
+texture_margin_top = 16.0145
+texture_margin_right = 24.1081
+texture_margin_bottom = 2.96841
+region_rect = Rect2(0, 150, 128, 84)

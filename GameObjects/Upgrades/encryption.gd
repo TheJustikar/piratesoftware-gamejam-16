@@ -2,4 +2,12 @@ class_name Encryption extends Upgrade
 
 
 func _init() -> void:
-	super("Encryption", "res://GameObjects/Upgrades/encryption.png", 0, 15, 0, 0)
+	super(
+		"Encryption",
+		"res://GameObjects/Upgrades/encryption.png",
+		[
+			StatsModifier.new(
+			Stats.Type.DEFENSE,
+			StatsModifier.Modifier.ADDITIVE,
+			20),
+		])
