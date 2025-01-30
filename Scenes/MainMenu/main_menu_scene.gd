@@ -3,6 +3,8 @@ extends Control
 
 func _ready() -> void:
 	$Character.intializeWith(EvilEye.new())
+	$ButtonsContainer/VBoxContainer/QuitButton.disabled = OS.has_feature("web")
+	$ButtonsContainer/VBoxContainer/QuitButton.hidden = OS.has_feature("web")
 
 
 func _on_start_button_button_up() -> void:
