@@ -13,5 +13,5 @@ func _init() -> void:
 			StatsModifier.new(
 			Stats.Type.DAMAGE, 
 			StatsModifier.Modifier.ADDITIVE, 
-			30),
+			15),
 		])
