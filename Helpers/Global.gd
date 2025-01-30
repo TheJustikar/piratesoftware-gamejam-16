@@ -17,6 +17,7 @@ func reset():
 
 
 func currentEnemy() -> Enemy:
+	return TrojanHorse.new()
 	var newEnemy: Enemy
 	var newEnemyId = randi_range(0, Enemy.allEnemies.size() - 1)
 	
