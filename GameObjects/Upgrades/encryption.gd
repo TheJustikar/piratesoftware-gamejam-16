@@ -9,5 +9,5 @@ func _init() -> void:
 			StatsModifier.new(
 			Stats.Type.DEFENSE,
 			StatsModifier.Modifier.ADDITIVE,
-			20),
+			30),
 		])

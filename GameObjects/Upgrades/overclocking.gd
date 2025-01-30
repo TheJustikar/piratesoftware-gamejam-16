@@ -17,7 +17,7 @@ func _init() -> void:
 			StatsModifier.new(
 			Stats.Type.DAMAGE, 
 			StatsModifier.Modifier.ADDITIVE, 
-			15),
+			10),
 			StatsModifier.new(
 			Stats.Type.HIT_RATE, 
 			StatsModifier.Modifier.MULTIPLICATIVE, 
