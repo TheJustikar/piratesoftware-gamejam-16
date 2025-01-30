@@ -74,6 +74,8 @@ func update():
 	if _character == null:
 		return
 	
+	$MainContainer/NameContainer/NameLabel.text = _character.name
+	
 	if _character.spriteResource != null &&\
 		$MainContainer/AnimatedTextureRect.spriteFrames != _character.spriteResource:
 		$MainContainer/AnimatedTextureRect.spriteFrames = _character.spriteResource
@@ -81,7 +83,6 @@ func update():
 	
 	match showStats:
 		StatsDisplay.BATTLE:
-			$MainContainer/NameContainer/NameLabel.text = _character.name
 			$HPContainer/CenterContainer/HPBar.max_value = _character.stats.health
 			$HPContainer/CenterContainer/HPBar.value = _character.currentHealth
 			$HPContainer/HPLabel.text = str(_character.currentHealth)
