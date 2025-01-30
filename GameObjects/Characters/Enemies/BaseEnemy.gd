@@ -2,7 +2,7 @@ class_name Enemy extends Character
 
 
 static var allEnemies: Array = [
-	AntiBrella,
+	#AntiBrella,
 	Firewall,
 	FireChicken,
 	TrojanHorse,

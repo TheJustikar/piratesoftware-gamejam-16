@@ -12,7 +12,8 @@ var _lastEnemyHit: int = -1
 func _ready() -> void:
 	$Player.intializeWith(Global.player)
 	_enemy = Global.currentEnemy()
-	$Enemy.intializeWith(_enemy)
+	$Enemy.intializeWith(_enemy)	
+	$ScoreLabel.text = "Score: %s" % Global.progress
 
 
 func _process(delta: float) -> void:

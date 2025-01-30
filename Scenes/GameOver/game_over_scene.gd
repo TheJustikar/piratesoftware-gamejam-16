@@ -3,6 +3,7 @@ extends Control
 
 func _ready() -> void:
 	$Character.intializeWith(Global.player)
+	$VBoxContainer/ScoreLabel.text = "Final score: %s" % Global.progress
 	if Global.progress == Global.maxProgress:
 		$VBoxContainer/ResultLabel.text = "YOU WIN"
 	else:

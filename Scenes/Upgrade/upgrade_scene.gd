@@ -9,6 +9,7 @@ var _currentSelection: int = -1
 
 func _ready() -> void:
 	$Character.intializeWith(Global.player)
+	$ScoreLabel.text = "Score: %s" % Global.progress
 	
 	var pickedUpgrades = []
 	
