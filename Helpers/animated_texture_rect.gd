@@ -37,18 +37,19 @@ func  _process(delta: float) -> void:
 	_setAnimationData()
 	_frameDelta += speedScale * delta
 	if _frameDelta >= _refreshRate / _fps:
-		texture = getNextFrame()
+		texture = _getNextFrame()
 		_frameDelta = 0
 	elif texture == null:
 		texture = spriteFrames.get_frame_texture(currentAnimation, frameIndex)
 
 
-func getNextFrame() -> Texture2D:
+func _getNextFrame() -> Texture2D:
 	frameIndex += 1
 	if frameIndex >= spriteFrames.get_frame_count(currentAnimation):
-		frameIndex = 0
 		if spriteFrames.get_animation_loop(currentAnimation) == false:
 			playing = false
+		else:
+			frameIndex = 0
 	
 	_setAnimationData()
 	return spriteFrames.get_frame_texture(currentAnimation, frameIndex)

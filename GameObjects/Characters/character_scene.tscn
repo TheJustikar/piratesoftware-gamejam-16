@@ -87,7 +87,6 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxTexture_2paxt")
 theme_override_styles/fill = SubResource("StyleBoxTexture_ttfil")
 step = 1.0
-value = 50.0
 
 [node name="AllStatsContainer" type="CenterContainer" parent="."]
 visible = false

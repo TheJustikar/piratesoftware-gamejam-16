@@ -9,6 +9,9 @@ var _character: Character
 var _previewedUpgrade: Upgrade
 
 
+var _playingTemporaryAnimation = false
+
+
 @export
 var showStats: StatsDisplay = StatsDisplay.NONE:
 	set(newShowStats):
@@ -57,6 +60,25 @@ func _ready() -> void:
 			$HPContainer.visible = false
 			$MainContainer/TimeToAttackBar.visible = false
 			$AllStatsContainer.visible = true
+
+
+func _process(delta: float) -> void:
+	if _playingTemporaryAnimation && \
+		$MainContainer/AnimatedTextureRect.playing == false && \
+		$MainContainer/AnimatedTextureRect.currentAnimation != "death":
+		$MainContainer/AnimatedTextureRect.play("default")
+		_playingTemporaryAnimation = false
+
+
+func playAttack():
+	if _playingTemporaryAnimation == false:
+		$MainContainer/AnimatedTextureRect.play("attack")
+		_playingTemporaryAnimation = true
+
+func playDeath():
+	if _playingTemporaryAnimation == false:
+		$MainContainer/AnimatedTextureRect.play("death")
+		_playingTemporaryAnimation = true
 
 
 func intializeWith(character: Character):
