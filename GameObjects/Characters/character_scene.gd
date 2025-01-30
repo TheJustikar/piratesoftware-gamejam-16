@@ -71,14 +71,13 @@ func _process(delta: float) -> void:
 
 
 func playAttack():
-	if _playingTemporaryAnimation == false:
+	if $MainContainer/AnimatedTextureRect.currentAnimation == "default":
 		$MainContainer/AnimatedTextureRect.play("attack")
 		_playingTemporaryAnimation = true
 
 func playDeath():
-	if _playingTemporaryAnimation == false:
-		$MainContainer/AnimatedTextureRect.play("death")
-		_playingTemporaryAnimation = true
+	$MainContainer/AnimatedTextureRect.play("death")
+	_playingTemporaryAnimation = true
 
 
 func intializeWith(character: Character):
