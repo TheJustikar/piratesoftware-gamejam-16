@@ -45,7 +45,9 @@ var showHpBarOnRight = false:
 
 
 func _ready() -> void:
-	move_child($HPContainer, 1 if showHpBarOnRight else 0)
+	var targetHpContainerIndex = 1 if showHpBarOnRight else 0
+	if $HPContainer.get_index() != targetHpContainerIndex:
+		move_child($HPContainer, targetHpContainerIndex)
 	$MainContainer/NameContainer.visible = showName
 	match showStats:
 		StatsDisplay.NONE:
@@ -62,7 +64,7 @@ func _ready() -> void:
 			$AllStatsContainer.visible = true
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _playingTemporaryAnimation && \
 		$MainContainer/AnimatedTextureRect.playing == false && \
 		$MainContainer/AnimatedTextureRect.currentAnimation != "death":

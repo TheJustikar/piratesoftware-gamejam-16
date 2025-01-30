@@ -14,6 +14,7 @@ var _enemiesFought: Array[Enemy] = []
 func reset():
 	progress = 0
 	player = EvilEye.new()
+	_enemiesFought = []
 
 
 func currentEnemy() -> Enemy:
@@ -22,7 +23,7 @@ func currentEnemy() -> Enemy:
 	
 	#First enemy
 	if _enemiesFought.is_empty():
-		newEnemy = Enemy.allEnemies[newEnemyId].new()
+		newEnemy = Enemy.allEnemies[newEnemyId].new(progress)
 		_enemiesFought.append(newEnemy)
 	#Current enemy
 	elif progress < _enemiesFought.size():
@@ -33,7 +34,7 @@ func currentEnemy() -> Enemy:
 			newEnemyId += 1
 			if newEnemyId >= Enemy.allEnemies.size():
 				newEnemyId = 0
-		newEnemy = Enemy.allEnemies[newEnemyId].new()
+		newEnemy = Enemy.allEnemies[newEnemyId].new(progress)
 		_enemiesFought.append(newEnemy)
 	
 	return newEnemy

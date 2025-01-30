@@ -45,6 +45,7 @@ anchor_bottom = 0.7
 offset_right = 0.159973
 offset_bottom = -0.0400391
 showName = false
+showHpBarOnRight = false
 
 [node name="ButtonsContainer" type="MarginContainer" parent="."]
 layout_mode = 1

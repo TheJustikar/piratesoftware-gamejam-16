@@ -11,3 +11,9 @@ static var allEnemies: Array = [
 
 func _init(name: String, spritePath: String, stats: Stats) -> void:
 	super(name, spritePath, stats)
+
+
+static func calculateMultiplyer(
+	base: int,	level: int, percentage: float) -> int:
+	var multiplyer = level * percentage
+	return int(base * (1 + multiplyer))

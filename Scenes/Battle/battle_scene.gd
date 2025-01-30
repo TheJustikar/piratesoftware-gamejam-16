@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 			$Enemy.playDeath()
 			return
 	
-	if Global.player.isAlive() == false:
+	if Global.player.isAlive() == false && $DeathTimer.is_stopped():
 		$Player.playDeath()
 		$DeathTimer.start()
 		return
