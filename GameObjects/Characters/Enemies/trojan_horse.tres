@@ -12,6 +12,22 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t3b8n")
 }],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3b8n")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3b8n")
+}],
 "loop": true,
 "name": &"default",
 "speed": 5.0
