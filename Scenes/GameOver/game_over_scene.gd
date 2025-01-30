@@ -8,7 +8,7 @@ func _ready() -> void:
 		$VBoxContainer/ResultLabel.text = "YOU WIN"
 	else:
 		$VBoxContainer/ResultLabel.text = "YOU LOOSE"
-		
+	
 	if OS.has_feature("web"):
 		$VBoxContainer/CenterContainer/VBoxContainer/QuitButton.disabled = true
 		$VBoxContainer/CenterContainer/VBoxContainer/QuitButton.hide()

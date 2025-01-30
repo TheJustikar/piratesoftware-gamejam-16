@@ -48,6 +48,7 @@ func _getNextFrame() -> Texture2D:
 	if frameIndex >= spriteFrames.get_frame_count(currentAnimation):
 		if spriteFrames.get_animation_loop(currentAnimation) == false:
 			playing = false
+			frameIndex -= 1
 		else:
 			frameIndex = 0
 	
